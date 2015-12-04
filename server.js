@@ -1,5 +1,5 @@
-var node = require("./node");
-var pretty = require("./pretty");
+var node = require("./src/game/node");
+var pretty = require("./src/helper/pretty");
 
 var express = require("express");
 var app = express();
