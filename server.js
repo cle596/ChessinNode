@@ -15,9 +15,9 @@ app.get("/game",function(req,res){
 });
 
 app.use(function(req, res, next){
-  res.status(404).send("Wrong address");
+  res.status(404).send("Bad request. Refer to API docs.");
 });
 
 app.use(function(err, req, res, next) {
-  res.status(500).send('Something broke!');
+  res.status(500).send('Error. Refer to API docs.');
 });

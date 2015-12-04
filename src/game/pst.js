@@ -1,10 +1,3 @@
-var negate = function(arr){
-  arr.forEach(function(y,x,arr){
-    arr[x] *= -1;
-  });
-  return arr;
-}
-
 var pst = {};
 
 pst.P = [
