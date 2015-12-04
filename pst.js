@@ -5,16 +5,9 @@ var negate = function(arr){
   return arr;
 }
 
-var value = {};
+var pst = {};
 
-value.P = 100; value.p = -value.P;
-value.N = 320; value.n = -value.N;
-value.B = 330; value.b = -value.B;
-value.R = 500; value.r = -value.R;
-value.Q = 900; value.q = -value.Q;
-value.K = 20000; value.k = -value.K;
-
-value.pawn = [
+pst.P = [
   0,  0,  0,  0,  0,  0,  0,  0,
  50, 50, 50, 50, 50, 50, 50, 50,
  10, 10, 20, 30, 30, 20, 10, 10,
@@ -25,9 +18,9 @@ value.pawn = [
   0,  0,  0,  0,  0,  0,  0,  0
 ];
 
-value.npawn = negate(value.pawn);
+pst.P = negate(pst.p);
 
-value.knight = [
+pst.N = [
   -50,-40,-30,-30,-30,-30,-40,-50,
   -40,-20,  0,  0,  0,  0,-20,-40,
   -30,  0, 10, 15, 15, 10,  0,-30,
@@ -38,9 +31,9 @@ value.knight = [
   -50,-40,-30,-30,-30,-30,-40,-50
 ];
 
-value.nknight = negate(value.knight);
+pst.n = negate(pst.N);
 
-value.bishop = [
+pst.B = [
   -20,-10,-10,-10,-10,-10,-10,-20,
   -10,  0,  0,  0,  0,  0,  0,-10,
   -10,  0,  5, 10, 10,  5,  0,-10,
@@ -51,9 +44,9 @@ value.bishop = [
   -20,-10,-10,-10,-10,-10,-10,-20
 ];
 
-value.nbishop = negate(value.bishop);
+pst.b = negate(pst.B);
 
-value.rook = [
+pst.R = [
   0,  0,  0,  0,  0,  0,  0,  0,
   5, 10, 10, 10, 10, 10, 10,  5,
  -5,  0,  0,  0,  0,  0,  0, -5,
@@ -64,9 +57,9 @@ value.rook = [
   0,  0,  0,  5,  5,  0,  0,  0
 ];
 
-value.nrook = negate(value.rook);
+pst.r = negate(pst.R);
 
-value.queen = [
+pst.Q = [
   -20,-10,-10, -5, -5,-10,-10,-20,
   -10,  0,  0,  0,  0,  0,  0,-10,
   -10,  0,  5,  5,  5,  5,  0,-10,
@@ -77,9 +70,9 @@ value.queen = [
   -20,-10,-10, -5, -5,-10,-10,-20
 ];
 
-value.nqueen = negate(value.queen);
+pst.nqueen = negate(pst.q);
 
-value.king_mid = [
+pst.Km = [
   -30,-40,-40,-50,-50,-40,-40,-30,
   -30,-40,-40,-50,-50,-40,-40,-30,
   -30,-40,-40,-50,-50,-40,-40,-30,
@@ -90,9 +83,9 @@ value.king_mid = [
   20, 30, 10,  0,  0, 10, 30, 20
 ];
 
-value.nking_mid = negate(value.king_mid);
+pst.km = negate(pst.Km);
 
-value.king_late = [
+pst.Kl = [
   -50,-40,-30,-20,-20,-30,-40,-50,
   -30,-20,-10,  0,  0,-10,-20,-30,
   -30,-10, 20, 30, 30, 20,-10,-30,
@@ -103,6 +96,6 @@ value.king_late = [
   -50,-30,-30,-30,-30,-30,-30,-50
 ];
 
-value.nking_late = negate(value.king_late);
+pst.kl = negate(pst.Kl);
 
-module.exports = value;
+module.exports = pst;
