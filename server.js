@@ -10,16 +10,14 @@ app.get("/",function(req,res){
 });
 
 app.get("/game",function(req,res){
-  var root = node();
+  var root = node.Node();
   res.send(helper.pprint(root));
 });
 
 app.use(function(req, res, next){
-  res.status(404);
-  res.send("Wrong address");
+  res.status(404).send("Wrong address");
 });
 
 app.use(function(err, req, res, next) {
-  console.error(err.stack);
   res.status(500).send('Something broke!');
 });

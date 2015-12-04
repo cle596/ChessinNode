@@ -1,4 +1,5 @@
-var node = function() {
+var node = {};
+node.Node = function() {
   var node = {
     board:
       (" ".repeat(9)+"\n").repeat(2)+

@@ -1,11 +1,18 @@
+var negate = function(arr){
+  arr.forEach(function(y,x,arr){
+    arr[x] *= -1;
+  });
+  return arr;
+}
+
 var value = {};
 
-value.P = 100
-value.N = 320
-value.B = 330
-value.R = 500
-value.Q = 900
-value.K = 20000
+value.P = 100; value.p = -value.P;
+value.N = 320; value.n = -value.N;
+value.B = 330; value.b = -value.B;
+value.R = 500; value.r = -value.R;
+value.Q = 900; value.q = -value.Q;
+value.K = 20000; value.k = -value.K;
 
 value.pawn = [
   0,  0,  0,  0,  0,  0,  0,  0,
@@ -18,6 +25,8 @@ value.pawn = [
   0,  0,  0,  0,  0,  0,  0,  0
 ];
 
+value.npawn = negate(value.pawn);
+
 value.knight = [
   -50,-40,-30,-30,-30,-30,-40,-50,
   -40,-20,  0,  0,  0,  0,-20,-40,
@@ -28,6 +37,8 @@ value.knight = [
   -40,-20,  0,  5,  5,  0,-20,-40,
   -50,-40,-30,-30,-30,-30,-40,-50
 ];
+
+value.nknight = negate(value.knight);
 
 value.bishop = [
   -20,-10,-10,-10,-10,-10,-10,-20,
@@ -40,6 +51,8 @@ value.bishop = [
   -20,-10,-10,-10,-10,-10,-10,-20
 ];
 
+value.nbishop = negate(value.bishop);
+
 value.rook = [
   0,  0,  0,  0,  0,  0,  0,  0,
   5, 10, 10, 10, 10, 10, 10,  5,
@@ -50,6 +63,8 @@ value.rook = [
  -5,  0,  0,  0,  0,  0,  0, -5,
   0,  0,  0,  5,  5,  0,  0,  0
 ];
+
+value.nrook = negate(value.rook);
 
 value.queen = [
   -20,-10,-10, -5, -5,-10,-10,-20,
@@ -62,6 +77,8 @@ value.queen = [
   -20,-10,-10, -5, -5,-10,-10,-20
 ];
 
+value.nqueen = negate(value.queen);
+
 value.king_mid = [
   -30,-40,-40,-50,-50,-40,-40,-30,
   -30,-40,-40,-50,-50,-40,-40,-30,
@@ -73,6 +90,8 @@ value.king_mid = [
   20, 30, 10,  0,  0, 10, 30, 20
 ];
 
+value.nking_mid = negate(value.king_mid);
+
 value.king_late = [
   -50,-40,-30,-20,-20,-30,-40,-50,
   -30,-20,-10,  0,  0,-10,-20,-30,
@@ -83,5 +102,7 @@ value.king_late = [
   -30,-30,  0,  0,  0,  0,-30,-30,
   -50,-30,-30,-30,-30,-30,-30,-50
 ];
+
+value.nking_late = negate(value.king_late);
 
 module.exports = value;
