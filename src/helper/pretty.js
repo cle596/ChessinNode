@@ -1,6 +1,6 @@
-var helper = {};
+var pretty = {};
 
-helper.pprint = function(node) {
+pretty.print = function(node) {
   var pretty = node.board.split("");
   pretty.forEach(function(y, x, arr) {
     arr[x] += " ";
@@ -9,4 +9,4 @@ helper.pprint = function(node) {
   return pretty;
 }
 
-module.exports = helper;
+module.exports = pretty;

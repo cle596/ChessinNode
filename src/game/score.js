@@ -2,8 +2,7 @@ var mat = require("./mat");
 var pst = require("./pst");
 
 var pieces = [
-  'P','N','B','R','Q','K',
-  'p','n','b','r','q','k'
+  'P','N','B','R','Q','K'
 ];
 
 var score = {};

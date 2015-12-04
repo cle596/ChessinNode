@@ -1,5 +1,5 @@
 var node = require("./node");
-var helper = require("./helper");
+var pretty = require("./pretty");
 
 var express = require("express");
 var app = express();
@@ -11,7 +11,7 @@ app.get("/",function(req,res){
 
 app.get("/game",function(req,res){
   var root = node.Node();
-  res.send(helper.pprint(root));
+  res.send(pretty.print(root));
 });
 
 app.use(function(req, res, next){
