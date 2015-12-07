@@ -8,6 +8,10 @@ rotate.rotate = function(node){
   b.forEach(function(y,x,arr){
     arr[x] = y.split("");
   });
+  b.forEach(function(y,x,arr){
+    arr[x] = y.reverse();
+  });
+  b = b.reverse();
   return b;
 };
 
