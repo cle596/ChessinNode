@@ -12,6 +12,10 @@ rotate.rotate = function(node){
     arr[x] = y.reverse();
   });
   b = b.reverse();
+  b.forEach(function(y,x,arr){
+    arr[x] = y.join("");
+  });
+  b = b.join("");
   return b;
 };
 
