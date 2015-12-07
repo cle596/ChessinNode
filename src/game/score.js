@@ -9,7 +9,8 @@ var score = {};
 
 score.mat = function(node){
   var score = 0;
-  node.board.forEach(function(c){
+  var b = node.board.split("");
+  b.forEach(function(c){
     pieces.forEach(function(p){
       if (c == p){
         score += mat[p];
@@ -21,7 +22,8 @@ score.mat = function(node){
 
 score.pos = function(node){
   var score = 0;
-  node.board.forEach(function(c,i){
+  var b = node.board.split("");
+  b.forEach(function(c,i){
     pieces.forEach(function(p){
       if (c == p){
         score += pst[p];
