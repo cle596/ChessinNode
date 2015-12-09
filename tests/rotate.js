@@ -5,6 +5,8 @@ var node = require("../src/game/node.js");
 var rotate = require("../src/helper/rotate.js");
 var pretty = require("../src/helper/pretty.js");
 
+console.log("rotate test");
 var root = node.Node();
 root.board = rotate.rotate(root);
+console.log(root.board.split(""));
 console.log(pretty.print(root));
