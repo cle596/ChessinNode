@@ -13,7 +13,12 @@ score.mat = function(node){
   b.forEach(function(c){
     pieces.forEach(function(p){
       if (c == p){
-        score += mat[p];
+        if (node.turn){
+          score += mat[p];
+        }
+        else{
+          score += -mat[p];
+        }
       }
     })
   });

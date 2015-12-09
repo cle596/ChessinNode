@@ -1,5 +1,5 @@
 var node = {};
-node.Node = function() {
+node.Node = function(turn) {
   var node = {
     board:
       (" ".repeat(9)+"\n").repeat(2)+
@@ -8,7 +8,8 @@ node.Node = function() {
       (" ".repeat(9)+"\n").repeat(4)+
       " PPPPPPPP\n" +
       " RNBQKBNR\n" +
-      (" ".repeat(9)+"\n").repeat(2)
+      (" ".repeat(9)+"\n").repeat(2),
+    turn: turn
   };
   return node;
 }

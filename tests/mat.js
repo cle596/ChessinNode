@@ -7,20 +7,17 @@ var pretty = require("../src/helper/pretty.js");
 var chalk = require("chalk");
 var ctx = new chalk.constructor({enabled: true});
 
-var target =
-  (" ".repeat(9)+"\n").repeat(2)+
-  " rnbkqbnr\n" +
-  " pppppppp\n" +
-  (" ".repeat(9)+"\n").repeat(4)+
-  " PPPPPPPP\n" +
-  " RNBKQBNR\n" +
-  (" ".repeat(9)+"\n").repeat(2);
+var target = 0;
 
 var root = node.Node(true);
+var pts = score.mat(root);
 root.board = rotate.rotate(root);
+root.turn = !root.turn;
+pts += score.mat(root);
+root.turn = !root.turn;
 
-process.stdout.write("Rotate Test: ");
-if (root.board == target){
+process.stdout.write("Mat Score Test: ");
+if (pts == target){
   process.stdout.write(ctx.green(String.fromCharCode(0x2714))+"\n");
 }
 else {

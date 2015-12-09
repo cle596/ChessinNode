@@ -3,7 +3,7 @@ var exec = require('child_process').exec;
 
 var tests = [
   "rotate.js",
-  "score.js"
+  "mat.js"
 ];
 
 tests.forEach(function(t){
