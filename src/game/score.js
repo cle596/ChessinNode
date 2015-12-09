@@ -31,7 +31,12 @@ score.pos = function(node){
   b.forEach(function(c,i){
     pieces.forEach(function(p){
       if (c == p){
-        score += pst[p];
+        if (node.turn){
+          score += pst[p][i];
+        }
+        else{
+          score += -pst[p][i];
+        }
       }
     })
   });

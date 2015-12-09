@@ -18,8 +18,8 @@ root.turn = !root.turn;
 
 process.stdout.write("Mat Score Test: ");
 if (pts == target){
-  process.stdout.write(ctx.green(String.fromCharCode(0x2714))+"\n");
+  process.stdout.write(ctx.green(String.fromCharCode(0x2714)));
 }
 else {
-  process.stdout.write(ctx.red(String.fromCharCode(0x2717))+"\n");
+  process.stdout.write(ctx.red(String.fromCharCode(0x2717)));
 }
