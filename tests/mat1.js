@@ -12,7 +12,7 @@ var target = 0;
 var root = node.Node(true);
 var pts = score.matBoth(root);
 
-process.stdout.write("Mat Score Test: ");
+process.stdout.write("Mat Score Test 1: ");
 if (pts == target){
   process.stdout.write(ctx.green(String.fromCharCode(0x2714)));
 }

@@ -7,12 +7,20 @@ var pretty = require("../src/helper/pretty.js");
 var chalk = require("chalk");
 var ctx = new chalk.constructor({enabled: true});
 
-var target = 0;
+var target = -330;
 
 var root = node.Node(true);
+root.board =
+  (" ".repeat(9)*2+"\n").repeat(2) +
+  " rnbqkbnr"+"\n" +
+  " pppppppp"+"\n" +
+  (" ".repeat(9)+"\n").repeat(4) +
+  " PPPPPPPP"+"\n" +
+  " RN QKBNR"+"\n" +
+  (" ".repeat(9)+"\n").repeat(2);
 var pts = score.matBoth(root);
 
-process.stdout.write("Mat Score Test: ");
+process.stdout.write("Mat Score Test 2: ");
 if (pts == target){
   process.stdout.write(ctx.green(String.fromCharCode(0x2714)));
 }

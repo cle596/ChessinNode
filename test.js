@@ -23,5 +23,3 @@ var run = function(){
   });
 }
 run();
-
-console.log("\n");

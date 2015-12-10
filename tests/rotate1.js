@@ -19,7 +19,7 @@ var target =
 var root = node.Node(true);
 root.board = rotate.rotate(root);
 
-process.stdout.write("Rotate Test: ");
+process.stdout.write("Rotate Test 1: ");
 if (root.board == target){
   process.stdout.write(ctx.green(String.fromCharCode(0x2714)));
 }
