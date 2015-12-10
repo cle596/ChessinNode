@@ -2,18 +2,26 @@ var fs = require("fs");
 var exec = require('child_process').exec;
 
 var tests = [
-  "rotate.js",
-  "mat.js",
-  "pos.js"
+  "rotate1.js",
+  "mat1.js",
+  "mat2.js",
+  "pos1.js"
 ];
 
-tests.forEach(function(t){
-  exec("node tests/"+t, function(error, stdout, stderr) {
-      process.stdout.write(stdout);
-      console.log(stderr);
-      if (error !== null) {
-          console.log('exec error: ' + error);
-      }
+var i = 0;
+var run = function(){
+  exec("node tests/" + tests[i], function(error, stdout, stderr) {
+    process.stdout.write(stdout);
+    console.log(stderr);
+    if (error !== null) {
+      console.log('exec error: ' + error);
+    }
+    i += 1;
+    if (i<tests.length){
+      run();
+    }
   });
-});
-console.log();
+}
+run();
+
+console.log("\n");
