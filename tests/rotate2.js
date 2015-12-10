@@ -7,7 +7,15 @@ var pretty = require("../src/helper/pretty.js");
 var chalk = require("chalk");
 var ctx = new chalk.constructor({enabled: true});
 
-var target = 50;
+var target =
+  (" ".repeat(9)+"\n").repeat(2)+
+  " rnbkqb r\n" +
+  " pppppppp\n" +
+  "      n  \n" +
+  (" ".repeat(9)+"\n").repeat(3)+
+  " PPPPPPPP\n" +
+  " RNBKQBNR\n" +
+  (" ".repeat(9)+"\n").repeat(2);
 
 var root = node.Node(true);
 root.board =
@@ -20,13 +28,15 @@ root.board =
   " PPPPPPPP"+"\n" +
   " R BQKBNR"+"\n" +
   (" ".repeat(9)+"\n").repeat(2);
-var pts = score.posBoth(root);
+root.board = rotate.rotate(root);
 
-process.stdout.write("Pos Score Test 1: ");
-if (pts == target){
+process.stdout.write("Rotate Test 2: ");
+if (root.board == target){
   process.stdout.write(ctx.green(String.fromCharCode(0x2714)));
 }
 else {
   process.stdout.write(ctx.red(String.fromCharCode(0x2717)));
-  console.log(pts);
+  console.log(target.length);
+  console.log(root.board.length);
+  console.log(target.localeCompare(root.board));
 }

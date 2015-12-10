@@ -3,6 +3,7 @@ var exec = require('child_process').exec;
 
 var tests = [
   "rotate1.js",
+  "rotate2.js",
   "mat1.js",
   "mat2.js",
   "pos1.js"
