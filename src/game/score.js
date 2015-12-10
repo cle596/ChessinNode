@@ -1,5 +1,6 @@
 var mat = require("./mat");
 var pst = require("./pst");
+var rotate = require("../helper/rotate");
 
 var pieces = [
   'P','N','B','R','Q','K'
@@ -25,7 +26,16 @@ score.mat = function(node){
   return score;
 };
 
+score.matBoth = function(node){
+  var pts = score.mat(node);
+  node.turn = !node.turn;
+  node.board = rotate.rotate(node);
+  pts += score.mat(node);
+  return pts;
+};
+
 score.pos = function(node){
+  var i = 0;
   var score = 0;
   var b = node.board.split("");
   b.forEach(function(c,i){
@@ -41,6 +51,14 @@ score.pos = function(node){
     })
   });
   return score;
+};
+
+score.posBoth = function(node){
+  var pts = score.pos(node);
+  node.turn = !node.turn;
+  node.board = rotate.rotate(node);
+  pts += score.pos(node);
+  return pts;
 };
 
 module.exports = score;

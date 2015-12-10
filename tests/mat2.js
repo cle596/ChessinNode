@@ -10,11 +10,7 @@ var ctx = new chalk.constructor({enabled: true});
 var target = 0;
 
 var root = node.Node(true);
-var pts = score.mat(root);
-root.board = rotate.rotate(root);
-root.turn = !root.turn;
-pts += score.mat(root);
-root.turn = !root.turn;
+var pts = score.matBoth(root);
 
 process.stdout.write("Mat Score Test: ");
 if (pts == target){
@@ -22,4 +18,5 @@ if (pts == target){
 }
 else {
   process.stdout.write(ctx.red(String.fromCharCode(0x2717)));
+  console.log(pts);
 }

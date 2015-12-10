@@ -10,11 +10,7 @@ var ctx = new chalk.constructor({enabled: true});
 var target = 0;
 
 var root = node.Node(true);
-var pts = score.pos(root);
-root.board = rotate.rotate(root);
-root.turn = !root.turn;
-pts += score.pos(root);
-root.turn = !root.turn;
+var pts = score.posBoth(root);
 
 process.stdout.write("Pos Score Test: ");
 if (pts == target){
@@ -22,4 +18,5 @@ if (pts == target){
 }
 else {
   process.stdout.write(ctx.red(String.fromCharCode(0x2717)));
+  console.log(pts);
 }
