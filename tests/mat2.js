@@ -21,8 +21,8 @@ root.board =
   " ........\n" +
   " PPPPPPPP\n" +
   " RN.QKBNR\n" +
-  " ........\n" +
-  " ........\n";
+  "         \n" +
+  "         \n";
 var pts = score.matBoth(root);
 
 process.stdout.write("Mat Score Test 2: ");

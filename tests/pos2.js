@@ -11,16 +11,18 @@ var target = 100;
 
 var root = node.Node(true);
 root.board =
-  (" ".repeat(9)+"\n").repeat(2) +
-  " rnbqkbnr"+"\n" +
-  " pppppppp"+"\n" +
-  " ........\n" +
-  " ........\n" +
-  " ........\n" +
-  " ..N..N..\n" +
-  " PPPPPPPP"+"\n" +
-  " R.BQKB.R"+"\n" +
-  (" ".repeat(9)+"\n").repeat(2);
+"         \n" +
+"         \n" +
+" rnbqkbnr\n" +
+" pppppppp\n" +
+" ........\n" +
+" ........\n" +
+" ........\n" +
+" ..N..N..\n" +
+" PPPPPPPP\n" +
+" R.BQKB.R\n" +
+"         \n" +
+"         \n";
 var pts = score.posBoth(root);
 
 process.stdout.write("Pos Score Test 2: ");

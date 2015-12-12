@@ -8,26 +8,33 @@ var chalk = require("chalk");
 var ctx = new chalk.constructor({enabled: true});
 
 var target =
-  (" ".repeat(9)+"\n").repeat(2)+
+  "         \n" +
+  "         \n" +
   " rnbkqb.r\n" +
   " pppppppp\n" +
   " .....n..\n" +
-  (" "+".".repeat(8)+"\n").repeat(3)+
+  " ........\n" +
+  " ........\n" +
+  " ........\n" +
   " PPPPPPPP\n" +
   " RNBKQBNR\n" +
-  (" ".repeat(9)+"\n").repeat(2);
+  "         \n" +
+  "         \n";
 
 var root = node.Node(true);
 root.board =
-  (" ".repeat(9)+"\n").repeat(2) +
-  " rnbqkbnr"+"\n" +
-  " pppppppp"+"\n" +
+  "         \n" +
+  "         \n" +
+  " rnbqkbnr\n" +
+  " pppppppp\n" +
   " ........\n" +
-  (" "+".".repeat(8)+"\n").repeat(2) +
+  " ........\n" +
+  " ........\n" +
   " ..N.....\n" +
-  " PPPPPPPP"+"\n" +
-  " R.BQKBNR"+"\n" +
-  (" ".repeat(9)+"\n").repeat(2);
+  " PPPPPPPP\n" +
+  " R.BQKBNR\n" +
+  "         \n" +
+  "         \n";
 root.board = rotate.rotate(root);
 
 process.stdout.write("Rotate Test 2: ");

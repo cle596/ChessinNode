@@ -8,13 +8,18 @@ var chalk = require("chalk");
 var ctx = new chalk.constructor({enabled: true});
 
 var target =
-  (" ".repeat(9)+"\n").repeat(2)+
+  "         \n" +
+  "         \n" +
   " rnbkqbnr\n" +
   " pppppppp\n" +
-  (" "+".".repeat(8)+"\n").repeat(4)+
+  " ........\n" +
+  " ........\n" +
+  " ........\n" +
+  " ........\n" +
   " PPPPPPPP\n" +
   " RNBKQBNR\n" +
-  (" ".repeat(9)+"\n").repeat(2);
+  "         \n" +
+  "         \n";
 
 var root = node.Node(true);
 root.board = rotate.rotate(root);
@@ -25,5 +30,4 @@ if (root.board == target){
 }
 else {
   process.stdout.write(ctx.red(String.fromCharCode(0x2717)));
-  console.log(pts);
 }
