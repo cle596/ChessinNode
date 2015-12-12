@@ -7,25 +7,23 @@ var pretty = require("../src/helper/pretty.js");
 var chalk = require("chalk");
 var ctx = new chalk.constructor({enabled: true});
 
-var target = -330;
+var target = 100;
 
 var root = node.Node(true);
 root.board =
-  "         \n" +
-  "         \n" +
-  " rnbqkbnr\n" +
-  " pppppppp\n" +
+  (" ".repeat(9)+"\n").repeat(2) +
+  " rnbqkbnr"+"\n" +
+  " pppppppp"+"\n" +
   " ........\n" +
   " ........\n" +
   " ........\n" +
-  " ........\n" +
-  " PPPPPPPP\n" +
-  " RN.QKBNR\n" +
-  " ........\n" +
-  " ........\n";
-var pts = score.matBoth(root);
+  " ..N..N..\n" +
+  " PPPPPPPP"+"\n" +
+  " R.BQKB.R"+"\n" +
+  (" ".repeat(9)+"\n").repeat(2);
+var pts = score.posBoth(root);
 
-process.stdout.write("Mat Score Test 2: ");
+process.stdout.write("Pos Score Test 2: ");
 if (pts == target){
   process.stdout.write(ctx.green(String.fromCharCode(0x2714)));
 }

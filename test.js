@@ -6,7 +6,8 @@ var tests = [
   "rotate2.js",
   "mat1.js",
   "mat2.js",
-  "pos1.js"
+  "pos1.js",
+  "pos2.js"
 ];
 
 var i = 0;

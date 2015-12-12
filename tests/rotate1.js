@@ -11,7 +11,7 @@ var target =
   (" ".repeat(9)+"\n").repeat(2)+
   " rnbkqbnr\n" +
   " pppppppp\n" +
-  (" ".repeat(9)+"\n").repeat(4)+
+  (" "+".".repeat(8)+"\n").repeat(4)+
   " PPPPPPPP\n" +
   " RNBKQBNR\n" +
   (" ".repeat(9)+"\n").repeat(2);

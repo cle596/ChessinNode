@@ -14,9 +14,9 @@ root.board =
   (" ".repeat(9)+"\n").repeat(2) +
   " rnbqkbnr"+"\n" +
   " pppppppp"+"\n" +
-  "         \n" +
-  (" ".repeat(9)+"\n").repeat(2) +
-  "   N     \n" +
+  " ........\n" +
+  (" "+".".repeat(8)+"\n").repeat(2) +
+  " ..N.....\n" +
   " PPPPPPPP"+"\n" +
   " R BQKBNR"+"\n" +
   (" ".repeat(9)+"\n").repeat(2);
