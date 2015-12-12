@@ -2,13 +2,18 @@ var node = {};
 node.Node = function(turn) {
   var node = {
     board:
-      (" ".repeat(9)+"\n").repeat(2)+
+      "         \n" +
+      "         \n" +
       " rnbqkbnr\n" +
       " pppppppp\n" +
-      (".".repeat(9)+"\n").repeat(4)+
+      " ........\n" +
+      " ........\n" +
+      " ........\n" +
+      " ........\n" +
       " PPPPPPPP\n" +
       " RNBQKBNR\n" +
-      (" ".repeat(9)+"\n").repeat(2),
+      "         \n" +
+      "         \n",
     turn: turn
   };
   return node;
