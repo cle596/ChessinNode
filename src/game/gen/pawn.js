@@ -12,7 +12,7 @@ var pawn = function (pos,node){
     }
     else if (x==1){
       if (board.empty(node.board[pos+y])
-      && board.empty(node.board[pos+arr[x-1]])){
+      && board.empty(node.board[pos+arr[0]])){
         moves.push([pos,pos+y]);
       }
     }
