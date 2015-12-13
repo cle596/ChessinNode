@@ -8,18 +8,37 @@ var gen = require("../src/game/gen.js");
 var chalk = require("chalk");
 var ctx = new chalk.constructor({enabled: true});
 
-var target = 0;
+var target = [
+  [ 81, 71 ],
+  [ 81, 61 ],
+  [ 82, 72 ],
+  [ 82, 62 ],
+  [ 83, 73 ],
+  [ 83, 63 ],
+  [ 84, 74 ],
+  [ 84, 64 ],
+  [ 85, 75 ],
+  [ 85, 65 ],
+  [ 86, 76 ],
+  [ 86, 66 ],
+  [ 87, 77 ],
+  [ 87, 67 ],
+  [ 88, 78 ],
+  [ 88, 68 ],
+  [ 92, 73 ],
+  [ 92, 71 ],
+  [ 97, 78 ],
+  [ 97, 76 ]
+];
 
 var root = node.Node(true);
 var moves = gen.gen(root);
-console.log(moves);
 
-process.stdout.write("Mat Score Test 1: ");
-/*
-if (pts == target){
+process.stdout.write("Gen Test 1: ");
+if (moves == target){
   process.stdout.write(ctx.green(String.fromCharCode(0x2714)));
 }
 else {
   process.stdout.write(ctx.red(String.fromCharCode(0x2717)));
+  console.log(moves);
 }
-*/

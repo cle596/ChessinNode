@@ -1,6 +1,9 @@
 var pawn = require("./gen/pawn");
 var knight = require("./gen/knight");
 var bishop = require("./gen/bishop");
+var rook = require("./gen/rook");
+var queen = require("./gen/queen");
+var king = require("./gen/king");
 
 var gen = {};
 
@@ -16,6 +19,15 @@ gen.gen = function(node){
     }
     else if (y == "B"){
       Array.prototype.push.apply(moves,bishop(x,node));
+    }
+    else if (y == "R"){
+      Array.prototype.push.apply(moves,rook(x,node));
+    }
+    else if (y == "Q"){
+      Array.prototype.push.apply(moves,queen(x,node));
+    }
+    else if (y == "K"){
+      Array.prototype.push.apply(moves,king(x,node));
     }
   });
   return moves;
