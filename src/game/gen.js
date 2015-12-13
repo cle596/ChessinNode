@@ -1,5 +1,6 @@
 var pawn = require("./gen/pawn");
 var knight = require("./gen/knight");
+var bishop = require("./gen/bishop");
 
 var gen = {};
 
@@ -12,6 +13,9 @@ gen.gen = function(node){
     }
     else if (y == "N"){
       Array.prototype.push.apply(moves,knight(x,node));
+    }
+    else if (y == "B"){
+      Array.prototype.push.apply(moves,bishop(x,node));
     }
   });
   return moves;
