@@ -1,6 +1,7 @@
 var node = {};
 node.Node = function(turn) {
   var node = {
+    turn: turn,
     board:
       "         \n" +
       "         \n" +
@@ -13,8 +14,7 @@ node.Node = function(turn) {
       " PPPPPPPP\n" +
       " RNBQKBNR\n" +
       "         \n" +
-      "         \n",
-    turn: turn
+      "         \n"
   };
   return node;
 }

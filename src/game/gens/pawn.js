@@ -1,9 +1,10 @@
 var board = require("../../helper/board");
 
 var vects = [-10,-20,-11,-9];
-var init = [81,82,83,84,85,86,87,88];
 
-var pawn = function (pos,node){
+var pawn = {};
+
+pawn.pawn = function (pos,node){
   var moves = [];
   vects.forEach(function(y,x,arr){
     if (x==0){
@@ -13,8 +14,7 @@ var pawn = function (pos,node){
     }
     else if (x==1){
       if (board.empty(node.board[pos+y])
-      && board.empty(node.board[pos+arr[0]])
-      && init.indexOf(pos) != -1){
+      && board.empty(node.board[pos+arr[x-1]])){
         moves.push([pos,pos+y]);
       }
     }
