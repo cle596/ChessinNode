@@ -1,7 +1,9 @@
 var board = {};
 
 board.empty = function(c){
-  if (c==" "){
+  if (c=="."
+    && c != " "
+    && c != "\n"){
     return true;
   }
   else {
@@ -10,7 +12,10 @@ board.empty = function(c){
 };
 
 board.enemy = function(c){
-  if (c==c.toLowerCase()){
+  if (c==c.toLowerCase()
+    && c != "."
+    && c != " "
+    && c != "\n"){
     return true;
   }
   else{
