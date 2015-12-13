@@ -1,4 +1,5 @@
 var pawn = require("./gen/pawn");
+var knight = require("./gen/knight");
 
 var gen = {};
 
@@ -8,6 +9,9 @@ gen.gen = function(node){
   b.forEach(function(y,x,arr){
     if (y == "P"){
       Array.prototype.push.apply(moves,pawn(x,node));
+    }
+    else if (y == "N"){
+      Array.prototype.push.apply(moves,knight(x,node));
     }
   });
   return moves;
