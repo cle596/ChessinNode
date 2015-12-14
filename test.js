@@ -14,15 +14,16 @@ var tests = [
 ];
 
 var i = 0;
-var run = function() {
-  var child = spawn("node", ["tests/"+tests[i]] , {
-      stdio: [process.stdin, process.stdout, 'pipe']
-    });
-  child.on('close', function (code) {
+function run(){
+  return spawn("node", ["tests/" + tests[i]], {
+    stdio: [process.stdin, process.stdout, process.stderr]
+  })
+  .on('close', function(code) {
     i += 1;
     if (i < tests.length) {
       run();
     }
   });
 }
+
 run();

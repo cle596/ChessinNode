@@ -4,7 +4,7 @@ node.Node = function(turn, board) {
     turn: turn,
     score: 0
   };
-  if (typeof(board) === null) {
+  if (typeof(board) === "undefined") {
     node.board =
       "         \n" +
       "         \n" +
