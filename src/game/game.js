@@ -8,6 +8,7 @@ var arrayEqual = require("../helper/arrayEqual.js").arrayEqual;
 var gen = require("./gen.js");
 var input = require("./input.js");
 var convert = require("../helper/convert.js").convert;
+var takeMove = require("../helper/takeMove.js").takeMove;
 var chalk = require("chalk");
 var ctx = new chalk.constructor({enabled: true});
 
@@ -15,6 +16,6 @@ var game = {};
 
 game.run = function(){
   var root = node.Node(true);
-  var move = input.prompt();
-  move = convert(move);
+  root.board = takeMove(convert(input.prompt()));
+
 }

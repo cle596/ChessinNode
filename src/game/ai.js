@@ -16,11 +16,12 @@ var ai = {};
 
 ai.search = function(n,depth,a,b,turn){
   var moves = gen.gen(n);
+  var nodes = [];
   for (var i=0;i<moves.length;++i){
-    node.Node(!turn,takeMove(n,moves[i]));
+    nodes.push(node.Node(!turn,takeMove(n,moves[i])));
   }
   nodes.scoreSort();
-  for (var i=0;i<moves.length;++i){
+  for (var i=0;i<nodes.length;++i){
 
   }
 };
