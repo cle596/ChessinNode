@@ -1,6 +1,6 @@
 var board = require("../../helper/board");
 
-var vects = [-10, 1, 10, -1];
+var vects = [-10,-9,1,11,10,9,-1,-11];
 
 var king = function(pos, node) {
   var moves = [];
