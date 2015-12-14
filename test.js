@@ -1,5 +1,5 @@
 var fs = require("fs");
-var exec = require('child_process').exec;
+var spawn = require('child_process').spawn;
 
 var tests = [
   "rotate1.js",
@@ -15,20 +15,14 @@ var tests = [
 
 var i = 0;
 var run = function() {
-  exec("node tests/" + tests[i], {
-      env: process.env,
+  var child = spawn("node", ["tests/"+tests[i]] , {
       stdio: [process.stdin, process.stdout, 'pipe']
-    },
-    function(error, stdout, stderr) {
-      process.stdout.write(stdout);
-      console.log(stderr);
-      if (error !== null) {
-        console.log('exec error: ' + error);
-      }
-      i += 1;
-      if (i < tests.length) {
-        run();
-      }
     });
+  child.on('close', function (code) {
+    i += 1;
+    if (i < tests.length) {
+      run();
+    }
+  });
 }
 run();
