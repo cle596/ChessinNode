@@ -11,8 +11,10 @@ var convert = require("../helper/convert.js").convert;
 var chalk = require("chalk");
 var ctx = new chalk.constructor({enabled: true});
 
+var game = {};
 
-var root = node.Node(true);
-var move = input.prompt();
-move = convert(move);
-console.log(move);
+game.run = function(){
+  var root = node.Node(true);
+  var move = input.prompt();
+  move = convert(move);
+}
