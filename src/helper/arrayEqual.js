@@ -1,7 +1,8 @@
 var arrayEqual = function(a, b) {
   if (a == null || b == null) return false;
   if (a.length != b.length) return false;
-  if (typeof(a) == "object") {
+  if (typeof(a) == "object"
+    && a.length>2) {
     a.sort();
     b.sort();
   }
