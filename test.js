@@ -9,21 +9,26 @@ var tests = [
   "pos1.js",
   "pos2.js",
   "gen1.js",
-  "gen2.js"
+  "gen2.js",
+  "input1.js"
 ];
 
 var i = 0;
-var run = function(){
-  exec("node tests/" + tests[i], function(error, stdout, stderr) {
-    process.stdout.write(stdout);
-    console.log(stderr);
-    if (error !== null) {
-      console.log('exec error: ' + error);
-    }
-    i += 1;
-    if (i<tests.length){
-      run();
-    }
-  });
+var run = function() {
+  exec("node tests/" + tests[i], {
+      env: process.env,
+      stdio: [process.stdin, process.stdout, 'pipe']
+    },
+    function(error, stdout, stderr) {
+      process.stdout.write(stdout);
+      console.log(stderr);
+      if (error !== null) {
+        console.log('exec error: ' + error);
+      }
+      i += 1;
+      if (i < tests.length) {
+        run();
+      }
+    });
 }
 run();
