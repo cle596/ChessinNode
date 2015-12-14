@@ -1,8 +1,11 @@
 var node = {};
-node.Node = function(turn) {
+node.Node = function(turn, board) {
   var node = {
     turn: turn,
-    board:
+    score: 0
+  };
+  if (typeof(board) === null) {
+    node.board =
       "         \n" +
       "         \n" +
       " rnbqkbnr\n" +
@@ -14,8 +17,10 @@ node.Node = function(turn) {
       " PPPPPPPP\n" +
       " RNBQKBNR\n" +
       "         \n" +
-      "         \n"
-  };
+      "         \n";
+  } else {
+    node.board = board;
+  }
   return node;
 }
 

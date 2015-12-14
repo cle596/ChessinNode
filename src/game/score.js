@@ -61,4 +61,8 @@ score.posBoth = function(node){
   return pts;
 };
 
+score.score = function(node){
+  return score.matBoth(node)+score.posBoth(node);
+}
+
 module.exports = score;
