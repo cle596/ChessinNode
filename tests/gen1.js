@@ -37,8 +37,8 @@ var moves = gen.gen(root);
 
 process.stdout.write("Gen Test 1: ");
 if (arrayEqual(moves,target)){
-  process.stdout.write(ctx.green(String.fromCharCode(0x2714)));
+  process.stdout.write(ctx.green(String.fromCharCode(0x2714))+"\n");
 }
 else {
-  process.stdout.write(ctx.red(String.fromCharCode(0x2717)));
+  process.stdout.write(ctx.red(String.fromCharCode(0x2717))+"\n");
 }

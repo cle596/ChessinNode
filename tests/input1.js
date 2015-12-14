@@ -14,8 +14,8 @@ var target = "e2e4";
 console.log("Input Test 1: (Type e2e4)");
 var move = input.prompt();
 if (move == target){
-  process.stdout.write(ctx.green(String.fromCharCode(0x2714)));
+  process.stdout.write(ctx.green(String.fromCharCode(0x2714))+"\n");
 }
 else {
-  process.stdout.write(ctx.red(String.fromCharCode(0x2717)));
+  process.stdout.write(ctx.red(String.fromCharCode(0x2717))+"\n");
 }

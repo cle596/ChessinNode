@@ -14,9 +14,9 @@ var pts = score.matBoth(root);
 
 process.stdout.write("Mat Score Test 1: ");
 if (pts == target){
-  process.stdout.write(ctx.green(String.fromCharCode(0x2714)));
+  process.stdout.write(ctx.green(String.fromCharCode(0x2714))+"\n");
 }
 else {
-  process.stdout.write(ctx.red(String.fromCharCode(0x2717)));
+  process.stdout.write(ctx.red(String.fromCharCode(0x2717))+"\n");
   console.log(pts);
 }
