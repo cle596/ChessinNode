@@ -2,6 +2,7 @@ var node = {};
 node.Node = function(turn, board) {
   var node = {
     turn: turn,
+    pass: 0,
     score: 0
   };
   if (typeof(board) === "undefined") {
