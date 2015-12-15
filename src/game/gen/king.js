@@ -13,18 +13,18 @@ var king = function(pos, node) {
   });
   if (node.turn){
     if (node.QR && node.K && node.board.slice(82,85) == "..."){
-      moves.push([85,81]);
+      moves.push([85,83]);
     }
     if (node.KR && node.K && node.board.slice(86,88) == ".."){
-      moves.push([85,88])
+      moves.push([85,87])
     }
   }
   else{
     if (node.qr && node.k && node.board.slice(85,88) == "..."){
-      moves.push([84,88]);
+      moves.push([84,86]);
     }
     if (node.kr && node.k && node.board.slice(82,84) == ".."){
-      moves.push([84,81])
+      moves.push([84,83])
     }
   }
   return moves;

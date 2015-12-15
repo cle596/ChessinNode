@@ -48,6 +48,30 @@ var checkCas = function(node,move){
   return node;
 }
 
+var registerCas = function(node,move){
+  if (node.turn){
+    if (move[0] == 85 && move[1] == 87){
+      node.board[88] = ".";
+      node.board[86] = "R";
+    }
+    if (move[0] == 85 && move[1] == 83){
+      node.board[81] = ".";
+      node.board[84] = "R";
+    }
+  }
+  else{
+    if (move[0] == 84 && move[1] == 82){
+      node.board[81] = ".";
+      node.board[83] = "R";
+    }
+    if (move[0] == 84 && move[1] == 86){
+      node.board[88] = ".";
+      node.board[85] = "R";
+    }
+  }
+  return node;
+}
+
 var takeMove = function(node,move){
   node = checkCas(node,move);
   node = checkpass(node,move);
@@ -60,6 +84,7 @@ var takeMove = function(node,move){
     b[move[1]] = p;
   }
   b[move[0]] = ".";
+  node = registerCas(node,move);
   return b.join("");
 }
 
