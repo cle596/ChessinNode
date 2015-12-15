@@ -10,7 +10,10 @@ var tests = [
   "pos2.js",
   "gen1.js",
   "gen2.js",
-  "input1.js"
+  //"input1.js",
+  "arrayeq1.js",
+  "board1.js",
+  "conv1.js"
 ];
 
 var i = 0;
