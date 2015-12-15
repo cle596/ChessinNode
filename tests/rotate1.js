@@ -30,4 +30,5 @@ if (root.board == target){
 }
 else {
   process.stdout.write(ctx.red(String.fromCharCode(0x2717))+"\n");
+  console.log(root.board);
 }

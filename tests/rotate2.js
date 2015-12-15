@@ -43,7 +43,5 @@ if (root.board == target){
 }
 else {
   process.stdout.write(ctx.red(String.fromCharCode(0x2717))+"\n");
-  console.log(target.length);
-  console.log(root.board.length);
-  console.log(target.localeCompare(root.board));
+  console.log(root.board);
 }

@@ -19,7 +19,34 @@ var checkQueen = function(node,move){
   }
 }
 
+var checkCas = function(node,move){
+  if (node.turn){
+    if (move[0] == 81){
+      node.QR = true;
+    }
+    if (move[0] == 85){
+      node.K = true;
+    }
+    if (move[0] == 88){
+      node.KR = true;
+    }
+  }
+  else{
+    if (move[0] == 81){
+      node.kr = true;
+    }
+    if (move[0] == 84){
+      node.k = true;
+    }
+    if (move[0] == 88){
+      node.qr = true;
+    }
+  }
+  return node;
+}
+
 var takeMove = function(node,move){
+  node = checkCas(node,move);
   node = checkpass(node,move);
   var b = node.board.split("");
   if (checkQueen(node,move)){
