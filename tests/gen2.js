@@ -25,6 +25,12 @@ root.board =
   " ....RK..\n" +
   "         \n" +
   "         \n";
+root.KR = false;
+root.QR = false;
+root.K = false;
+root.kr = false;
+root.qr = false;
+root.k = false;
 
 var target = [
   [48,37],[48,26],[48,38],[48,43],
