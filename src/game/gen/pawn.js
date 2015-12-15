@@ -22,6 +22,10 @@ var pawn = function (pos,node){
       if (board.enemy(node.board[pos+y])){
         moves.push([pos,pos+y]);
       }
+      else if (board.enemy(node.board[pos+y+10])
+        && node.pass == pos+y+10){
+        moves.push([pos,pos+y]);
+      }
     }
   });
   return moves;

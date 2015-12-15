@@ -5,6 +5,9 @@ var checkpass = function(node,move){
     && move[0] == move[1]+20){
     node.pass = move[1];
   }
+  else{
+    node.pass = 0;
+  }
   return node;
 }
 
