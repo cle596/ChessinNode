@@ -12,9 +12,11 @@ var tests = [
   "gen2.js",
   //"input1.js",
   "arrayeq1.js",
+  "order1.js",
   "board1.js",
   "conv1.js",
-  "take1.js"
+  "take1.js",
+  "sort1.js"
 ];
 
 var i = 0;
