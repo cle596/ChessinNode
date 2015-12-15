@@ -25,24 +25,24 @@ var checkQueen = function(node,move){
 var checkCas = function(node,move){
   if (node.turn){
     if (move[0] == 81){
-      node.QR = true;
+      node.QR = false;
     }
     if (move[0] == 85){
-      node.K = true;
+      node.K = false;
     }
     if (move[0] == 88){
-      node.KR = true;
+      node.KR = false;
     }
   }
   else{
     if (move[0] == 81){
-      node.kr = true;
+      node.kr = false;
     }
     if (move[0] == 84){
-      node.k = true;
+      node.k = false;
     }
     if (move[0] == 88){
-      node.qr = true;
+      node.qr = false;
     }
   }
   return node;

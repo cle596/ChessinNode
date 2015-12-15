@@ -3,12 +3,12 @@ node.Node = function(turn, board) {
   var node = {
     turn: turn,
     pass: 0,
-    KR: false,
-    QR: false,
-    K: false,
-    kr: false,
-    qr: false,
-    k: false,
+    KR: true,
+    QR: true,
+    K: true,
+    kr: true,
+    qr: true,
+    k: true,
     score: 0
   };
   if (typeof(board) === "undefined") {
