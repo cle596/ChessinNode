@@ -20,6 +20,7 @@ var tests = [
   "board1.js",
   "conv1.js",
   "reconv1.js",
+  "foconv1.js",
   "take1.js",
   "sort1.js",
   "match1.js"
