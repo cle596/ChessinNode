@@ -11,6 +11,7 @@ var foconvert = require("../src/helper/foconvert.js").foconvert;
 var takeMove = require("../src/helper/takeMove.js").takeMove;
 var gen = require("../src/game/gen.js");
 var chalk = require("chalk");
+var fs = require("fs");
 var ctx = new chalk.constructor({
   enabled: true
 });
@@ -77,32 +78,34 @@ var target =
   "         \n";
 
 var root = node.Node(true);
-var moves = gen.gen(root);
-moves.forEach(function(y, x, arr) {
-  arr[x] = foconvert(y);
-});
-if (moves.indexOf(hist[0][0]) != -1) {
-  console.log("white");
-  root.board = takeMove(root, convert(hist[0][0]));
+for (var z=0;z<hist.length;++z){
+  var moves = gen.gen(root);
+  moves.forEach(function(y, x, arr) {
+    arr[x] = foconvert(y);
+  });
+  if (moves.indexOf(hist[z][0]) != -1) {
+    root.board = takeMove(root, convert(hist[z][0]));
+  }
+  fs.appendFileSync("out.txt",root.board);
+  root.board = rotate.rotate(root);
+  root.turn = !root.turn;
+  var moves = gen.gen(root);
+  moves.forEach(function(y, x, arr) {
+    arr[x] = foconvert(reconvert(foconvert(y)));
+  });
+  if (hist[z][1]==""){
+    break;
+  }
+  if (moves.indexOf(hist[z][1]) != -1) {
+    root.board = takeMove(root, reconvert(hist[z][1]));
+  }
+  root.board = rotate.rotate(root);
+  root.turn = !root.turn;
+  fs.appendFileSync("out.txt",root.board);
 }
-root.board = rotate.rotate(root);
-root.turn = !root.turn;
-var moves = gen.gen(root);
-moves.forEach(function(y, x, arr) {
-  arr[x] = foconvert(y);
-});
-console.log(moves);
-if (moves.indexOf(hist[0][1]) != -1) {
-  console.log("black");
-  root.board = takeMove(root, reconvert(hist[0][0]));
-}
-root.board = rotate.rotate(root);
-root.turn = !root.turn;
-
 
 
 process.stdout.write("Match Test 1: ");
-
 if (root.board == target) {
   process.stdout.write(ctx.green(String.fromCharCode(0x2714)) + "\n");
 } else {

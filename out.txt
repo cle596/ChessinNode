@@ -1,0 +1,1044 @@
+         
+         
+ rnbqkbnr
+ pppppppp
+ ........
+ ........
+ ....P...
+ ........
+ PPPP.PPP
+ RNBQKBNR
+         
+         
+         
+         
+ rnbqkbnr
+ ppp.pppp
+ ...p....
+ ........
+ ....P...
+ ........
+ PPPP.PPP
+ RNBQKBNR
+         
+         
+         
+         
+ rnbqkbnr
+ ppp.pppp
+ ...p....
+ ........
+ ...PP...
+ ........
+ PPP..PPP
+ RNBQKBNR
+         
+         
+         
+         
+ rnbqkb.r
+ ppp.pppp
+ ...p.n..
+ ........
+ ...PP...
+ ........
+ PPP..PPP
+ RNBQKBNR
+         
+         
+         
+         
+ rnbqkb.r
+ ppp.pppp
+ ...p.n..
+ ........
+ ...PP...
+ ..N.....
+ PPP..PPP
+ R.BQKBNR
+         
+         
+         
+         
+ rnbqkb.r
+ ppp.pp.p
+ ...p.np.
+ ........
+ ...PP...
+ ..N.....
+ PPP..PPP
+ R.BQKBNR
+         
+         
+         
+         
+ rnbqkb.r
+ ppp.pp.p
+ ...p.np.
+ ........
+ ...PP...
+ ..N.B...
+ PPP..PPP
+ R..QKBNR
+         
+         
+         
+         
+ rnbqk..r
+ ppp.ppbp
+ ...p.np.
+ ........
+ ...PP...
+ ..N.B...
+ PPP..PPP
+ R..QKBNR
+         
+         
+         
+         
+ rnbqk..r
+ ppp.ppbp
+ ...p.np.
+ ........
+ ...PP...
+ ..N.B...
+ PPPQ.PPP
+ R...KBNR
+         
+         
+         
+         
+ rnbqk..r
+ pp..ppbp
+ ..pp.np.
+ ........
+ ...PP...
+ ..N.B...
+ PPPQ.PPP
+ R...KBNR
+         
+         
+         
+         
+ rnbqk..r
+ pp..ppbp
+ ..pp.np.
+ ........
+ ...PP...
+ ..N.BP..
+ PPPQ..PP
+ R...KBNR
+         
+         
+         
+         
+ rnbqk..r
+ p...ppbp
+ ..pp.np.
+ .p......
+ ...PP...
+ ..N.BP..
+ PPPQ..PP
+ R...KBNR
+         
+         
+         
+         
+ rnbqk..r
+ p...ppbp
+ ..pp.np.
+ .p......
+ ...PP...
+ ..N.BP..
+ PPPQN.PP
+ R...KB.R
+         
+         
+         
+         
+ r.bqk..r
+ p..nppbp
+ ..pp.np.
+ .p......
+ ...PP...
+ ..N.BP..
+ PPPQN.PP
+ R...KB.R
+         
+         
+         
+         
+ r.bqk..r
+ p..nppbp
+ ..pp.npB
+ .p......
+ ...PP...
+ ..N..P..
+ PPPQN.PP
+ R...KB.R
+         
+         
+         
+         
+ r.bqk..r
+ p..npp.p
+ ..pp.npb
+ .p......
+ ...PP...
+ ..N..P..
+ PPPQN.PP
+ R...KB.R
+         
+         
+         
+         
+ r.bqk..r
+ p..npp.p
+ ..pp.npQ
+ .p......
+ ...PP...
+ ..N..P..
+ PPP.N.PP
+ R...KB.R
+         
+         
+         
+         
+ r..qk..r
+ pb.npp.p
+ ..pp.npQ
+ .p......
+ ...PP...
+ ..N..P..
+ PPP.N.PP
+ R...KB.R
+         
+         
+         
+         
+ r..qk..r
+ pb.npp.p
+ ..pp.npQ
+ .p......
+ ...PP...
+ P.N..P..
+ .PP.N.PP
+ R...KB.R
+         
+         
+         
+         
+ r..qk..r
+ pb.n.p.p
+ ..pp.npQ
+ .p..p...
+ ...PP...
+ P.N..P..
+ .PP.N.PP
+ R...KB.R
+         
+         
+         
+         
+ r..qk..r
+ pb.n.p.p
+ ..pp.npQ
+ .p..p...
+ ...PP...
+ P.N..P..
+ .PP.N.PP
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ pb.nqp.p
+ ..pp.npQ
+ .p..p...
+ ...PP...
+ P.N..P..
+ .PP.N.PP
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ pb.nqp.p
+ ..pp.npQ
+ .p..p...
+ ...PP...
+ P.N..P..
+ .PP.N.PP
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ .b.nqp.p
+ p.pp.npQ
+ .p..p...
+ ...PP...
+ P.N..P..
+ .PP.N.PP
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ .b.nqp.p
+ p.pp.npQ
+ .p..p...
+ ...PP...
+ P.N..P..
+ .PP...PP
+ R.N.KB.R
+         
+         
+         
+         
+ r...k..r
+ .b.nqp.p
+ p.pp.npQ
+ .p..p...
+ ...PP...
+ P.N..P..
+ .PP...PP
+ R.N.KB.R
+         
+         
+         
+         
+ r...k..r
+ .b.nqp.p
+ p.pp.npQ
+ .p..p...
+ ...PP...
+ PNN..P..
+ .PP...PP
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ .b.nqp.p
+ p.pp.npQ
+ .p......
+ ...pP...
+ PNN..P..
+ .PP...PP
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ .b.nqp.p
+ p.pp.npQ
+ .p......
+ ...pP...
+ PNN..P..
+ .PP...PP
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ .b.nqp.p
+ p..p.npQ
+ .pp.....
+ ...pP...
+ PNN..P..
+ .PP...PP
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ .b.nqp.p
+ p..p.npQ
+ .pp.....
+ ...pP...
+ PNN..P..
+ .PP...PP
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ .b..qp.p
+ pn.p.npQ
+ .pp.....
+ ...pP...
+ PNN..P..
+ .PP...PP
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ .b..qp.p
+ pn.p.npQ
+ .pp.....
+ ...pP...
+ PNN..PP.
+ .PP....P
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ .b..qp.p
+ pn.p.npQ
+ .pp.....
+ ...pP...
+ PNN..PP.
+ .PP....P
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ .b..qp.p
+ pn.p.npQ
+ Npp.....
+ ...pP...
+ P.N..PP.
+ .PP....P
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ .b..qp.p
+ pn.p.npQ
+ Npp.....
+ ...pP...
+ P.N..PP.
+ .PP....P
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ .b..qp.p
+ pn.p.npQ
+ Npp.....
+ ...pP...
+ P.N..PPB
+ .PP....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b..qp.p
+ pn...npQ
+ Nppp....
+ ...pP...
+ P.N..PPB
+ .PP....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b..qp.p
+ pn...np.
+ Nppp....
+ ...pPQ..
+ P.N..PPB
+ .PP....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b..qp.p
+ pn...np.
+ Nppp....
+ ...pPQ..
+ P.N..PPB
+ .PP....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b..qp.p
+ pn...np.
+ Nppp....
+ ...pPQ..
+ P.N..PPB
+ .PP....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b..qp.p
+ pn...np.
+ Nppp....
+ ...pPQ..
+ P.N..PPB
+ .PP....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b..qp.p
+ pn...np.
+ NppN....
+ ...pPQ..
+ P....PPB
+ .PP....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b..qp.p
+ p....np.
+ Nppn....
+ ...pPQ..
+ P....PPB
+ .PP....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b..qp.p
+ p....np.
+ NppP....
+ ...p.Q..
+ P....PPB
+ .PP....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ p..q.np.
+ NppP....
+ ...p.Q..
+ P....PPB
+ .PP....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ p..q.np.
+ NppP....
+ ...p.Q..
+ P....PPB
+ .PP....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ p..q.np.
+ NppP....
+ ...p.Q..
+ P....PPB
+ .PP....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ p..q.np.
+ NppP....
+ ...p.Q..
+ P....PPB
+ .PP....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ p..q.np.
+ NppP....
+ ...p.Q..
+ P....PPB
+ .PP....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ p..q.np.
+ NppP....
+ ...Q....
+ P....PPB
+ .PP....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ p..q.np.
+ NppP....
+ ...Q....
+ P....PPB
+ .PP....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ p..q.np.
+ NppP....
+ .P.Q....
+ P....PPB
+ ..P....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ p..q.np.
+ NppP....
+ .P.Q....
+ P....PPB
+ ..P....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ p..q.np.
+ NppP....
+ .P......
+ P.Q..PPB
+ ..P....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ p....np.
+ Nppq....
+ .P......
+ P.Q..PPB
+ ..P....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ p....np.
+ Nppq....
+ .P......
+ P.Q..PPB
+ ..P....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ p....np.
+ Nppq....
+ .P......
+ P.Q..PPB
+ ..P....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ p....np.
+ Nppq....
+ .P......
+ P.Q..PPB
+ ..P....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ p....np.
+ Npp.....
+ .Pq.....
+ P.Q..PPB
+ ..P....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ p....Qp.
+ Npp.....
+ .Pq.....
+ P....PPB
+ ..P....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ p....Qp.
+ Npp.....
+ .Pq.....
+ P....PPB
+ ..P....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ Npp.....
+ .Pq.....
+ P....PPB
+ ..P....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ Npp.....
+ .Pq.....
+ P....PPB
+ ..P....P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ Npp.....
+ .Pq.....
+ P.P..PPB
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ Npp.....
+ .Pq.....
+ P.P..PPB
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ Npp.....
+ .Pq.....
+ P.P..PPB
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ Npp.....
+ .Pq.....
+ P.P..PPB
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ Npp.....
+ .Pq.....
+ P.P..PPB
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ Npp.....
+ .Pq.....
+ P.P..PPB
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ Npp.....
+ .Pq.....
+ P.P..PP.
+ .......P
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ Npp.....
+ .Pq.....
+ P.P..PP.
+ .......P
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ Npp.....
+ .Pq.....
+ P.P..PP.
+ .......P
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ Npp.....
+ .Pq.....
+ P.P..PP.
+ .......P
+ R...KB.R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ Npp.....
+ .PB.....
+ P.P..PP.
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ N.p.....
+ .Pp.....
+ P.P..PP.
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ N.p.....
+ .Pp.....
+ P.P..PP.
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ N.p.....
+ .Pp.....
+ P.P..PP.
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ N.p.....
+ .Pp.....
+ P.P..PP.
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ N.p.....
+ .Pp.....
+ P.P..PP.
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ N.p.....
+ .Pp.....
+ P.P..PP.
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ N.p.....
+ .Pp.....
+ P.P..PP.
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b...p.p
+ Q.....p.
+ N.p.....
+ .Pp..P..
+ P.P...P.
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b.....p
+ Q.....p.
+ N.p..p..
+ .Pp..P..
+ P.P...P.
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b.....p
+ Q.....p.
+ N.p..p..
+ .Pp..P..
+ P.P...P.
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b.....p
+ Q.....p.
+ N.p..p..
+ .Pp..P..
+ P.P...P.
+ .......P
+ R...K..R
+         
+         
+         
+         
+ r...k..r
+ .b.....p
+ Q.....p.
+ N.p..p..
+ .Pp..P..
+ P.P...P.
+ .......P
+ R...K..R
+         
+         
