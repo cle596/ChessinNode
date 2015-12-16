@@ -10,14 +10,14 @@ var ctx = new chalk.constructor({enabled: true});
 var target =
   "         \n" +
   "         \n" +
-  " rnbk...r\n" +
-  " ..b..qpp\n" +
-  " p.R.....\n" +
-  " ...n.p..\n" +
-  " p..NpP..\n" +
-  " BP..P...\n" +
-  " P..P..PP\n" +
-  " .KQ..B.R\n" +
+  " .r..r...\n" +
+  " .....k..\n" +
+  " ....NPR.\n" +
+  " .p.pp...\n" +
+  " p.......\n" +
+  " ....P..P\n" +
+  " P.q..P..\n" +
+  " K.....Q.\n" +
   "         \n" +
   "         \n";
 
@@ -25,19 +25,19 @@ var root = node.Node(true);
 root.board =
   "         \n" +
   "         \n" +
-  " r.b..qk.\n" +
-  " pp..p..p\n" +
-  " ...p..pb\n" +
-  " ..pPn..P\n" +
-  " ..P.N...\n" +
-  " .....r.P\n" +
-  " PPQ..B..\n" +
-  " R...KBNR\n" +
+  " .q.....k\n" +
+  " ..p..Q.p\n" +
+  " p..p....\n" +
+  " .......P\n" +
+  " ...PP.P.\n" +
+  " .rpn....\n" +
+  " ..K.....\n" +
+  " ...R..R.\n" +
   "         \n" +
   "         \n";
 root.board = rotate.rotate(root);
 
-process.stdout.write("Rotate Test 3: ");
+process.stdout.write("Rotate Test 4: ");
 if (root.board == target){
   process.stdout.write(ctx.green(String.fromCharCode(0x2714))+"\n");
 }

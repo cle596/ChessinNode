@@ -5,6 +5,7 @@ var tests = [
   "rotate1.js",
   "rotate2.js",
   "rotate3.js",
+  "rotate4.js",
   "mat1.js",
   "mat2.js",
   "pos1.js",
