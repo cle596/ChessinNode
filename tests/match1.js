@@ -5,11 +5,13 @@ var node = require("../src/game/_node.js");
 var rotate = require("../src/helper/rotate.js");
 var pretty = require("../src/helper/pretty.js");
 var arrayEqual = require("../src/helper/arrayEqual.js").arrayEqual;
+var convert = require("../src/helper/convert.js").convert;
+var reconvert = require("../src/helper/reconvert.js").reconvert;
 var gen = require("../src/game/gen.js");
 var chalk = require("chalk");
 var ctx = new chalk.constructor({enabled: true});
 
-var moves = [
+var hist = [
   ["e2e4", "d7d6"],
   ["d2d4", "g8f6"],
   ["b1c3", "g7g6"],
@@ -58,11 +60,18 @@ var moves = [
 
 var root = node.Node(true);
 var moves = gen.gen(root);
+if (moves.indexOf(convert(hist[0][0]))!= -1){
+  root.board = takeMove(root,convert(hist[0][0]));
+  console.log(root.board);
+}
 
-process.stdout.write("Gen Test 1: ");
+process.stdout.write("Match Test 1: \n");
+
+/*
 if (arrayEqual(moves,target)){
   process.stdout.write(ctx.green(String.fromCharCode(0x2714))+"\n");
 }
 else {
   process.stdout.write(ctx.red(String.fromCharCode(0x2717))+"\n");
 }
+*/

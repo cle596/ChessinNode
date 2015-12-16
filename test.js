@@ -21,7 +21,8 @@ var tests = [
   "conv1.js",
   "reconv1.js",
   "take1.js",
-  "sort1.js"
+  "sort1.js",
+  "match1.js"
 ];
 
 var i = 0;

@@ -85,8 +85,9 @@ var takeMove = function(node,move){
     b[move[1]] = p;
   }
   b[move[0]] = ".";
-  node.board = registerCas(node,move);
-  return b.join("");
+  node.board = b.join("");
+  b = registerCas(node,move);
+  return b;
 }
 
 exports.takeMove = takeMove;
