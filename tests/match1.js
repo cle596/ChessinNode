@@ -94,6 +94,8 @@ for (var z=0;z<hist.length;++z){
     arr[x] = foconvert(reconvert(foconvert(y)));
   });
   if (hist[z][1]==""){
+    root.board = rotate.rotate(root);
+    root.turn = !root.turn;
     break;
   }
   if (moves.indexOf(hist[z][1]) != -1) {

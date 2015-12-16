@@ -12,19 +12,19 @@ var king = function(pos, node) {
     }
   });
   if (node.turn){
-    if (node.QR && node.K && node.board.slice(82,85) == "..."){
-      moves.push([85,83]);
+    if (node.QR && node.K && node.board.slice(92,95) == "..."){
+      moves.push([95,93]);
     }
-    if (node.KR && node.K && node.board.slice(86,88) == ".."){
-      moves.push([85,87])
+    if (node.KR && node.K && node.board.slice(96,98) == ".."){
+      moves.push([95,97])
     }
   }
   else{
-    if (node.qr && node.k && node.board.slice(85,88) == "..."){
-      moves.push([84,86]);
+    if (node.qr && node.k && node.board.slice(95,98) == "..."){
+      moves.push([94,96]);
     }
-    if (node.kr && node.k && node.board.slice(82,84) == ".."){
-      moves.push([84,83])
+    if (node.kr && node.k && node.board.slice(92,94) == ".."){
+      moves.push([94,92])
     }
   }
   return moves;

@@ -24,24 +24,24 @@ var checkQueen = function(node,move){
 
 var checkCas = function(node,move){
   if (node.turn){
-    if (move[0] == 81){
+    if (move[0] == 91){
       node.QR = false;
     }
-    if (move[0] == 85){
+    if (move[0] == 95){
       node.K = false;
     }
-    if (move[0] == 88){
+    if (move[0] == 98){
       node.KR = false;
     }
   }
   else{
-    if (move[0] == 81){
+    if (move[0] == 91){
       node.kr = false;
     }
-    if (move[0] == 84){
+    if (move[0] == 94){
       node.k = false;
     }
-    if (move[0] == 88){
+    if (move[0] == 98){
       node.qr = false;
     }
   }
@@ -51,23 +51,23 @@ var checkCas = function(node,move){
 var registerCas = function(node,move){
   var b = node.board.split("");
   if (node.turn){
-    if (move[0] == 85 && move[1] == 87){
-      b[88] = ".";
-      b[86] = "R";
+    if (move[0] == 95 && move[1] == 97){
+      b[98] = ".";
+      b[96] = "R";
     }
-    if (move[0] == 85 && move[1] == 83){
-      b[81] = ".";
-      b[84] = "R";
+    if (move[0] == 95 && move[1] == 93){
+      b[91] = ".";
+      b[94] = "R";
     }
   }
   else{
-    if (move[0] == 84 && move[1] == 82){
-      b[81] = ".";
-      b[83] = "R";
+    if (move[0] == 94 && move[1] == 92){
+      b[91] = ".";
+      b[93] = "R";
     }
-    if (move[0] == 84 && move[1] == 86){
-      b[88] = ".";
-      b[85] = "R";
+    if (move[0] == 94 && move[1] == 96){
+      b[98] = ".";
+      b[95] = "R";
     }
   }
   return b.join("");
