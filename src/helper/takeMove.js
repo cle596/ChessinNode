@@ -3,7 +3,7 @@ var checkpass = function(node,move){
     && move[0]>80
     && move[0]<89
     && move[0] == move[1]+20){
-    node.pass = move[1];
+    node.pass = (9-move[1]%10)+(11-Math.floor(move[1]/10))*10;
   }
   else{
     node.pass = 0;
@@ -74,9 +74,21 @@ var registerCas = function(node,move){
   return node;
 }
 
+var registerPass = function(node,move){
+  var b = node.board.split("");
+  if (b[move[0]] == 'P'
+    && (move[1] == move[0]-9 || move[1] == move[0]-11)
+    && b[move[1]] == "."){
+    b[move[1]+10] = ".";
+  }
+  node.board = b.join("");
+  return node;
+}
+
 var takeMove = function(node,move){
   node = checkCas(node,move);
   node = checkpass(node,move);
+  node = registerPass(node,move);
   var b = node.board.split("");
   if (checkQueen(node,move)){
     b[move[1]] = 'Q';

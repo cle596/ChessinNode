@@ -23,7 +23,8 @@ var tests = [
   "helper/foconv1.js",
   "helper/take1.js",
   "helper/sort1.js",
-  "match/match1.js"
+  "match/match1.js",
+  "match/match2.js"
 ];
 
 var i = 0;
