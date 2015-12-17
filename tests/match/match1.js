@@ -1,15 +1,15 @@
-var score = require("../src/game/score.js");
-var mat = require("../src/game/mat.js");
-var pst = require("../src/game/pst.js");
-var node = require("../src/game/_node.js");
-var rotate = require("../src/helper/rotate.js");
-var pretty = require("../src/helper/pretty.js");
-var arrayEqual = require("../src/helper/arrayEqual.js").arrayEqual;
-var convert = require("../src/helper/convert.js").convert;
-var reconvert = require("../src/helper/reconvert.js").reconvert;
-var foconvert = require("../src/helper/foconvert.js").foconvert;
-var takeMove = require("../src/helper/takeMove.js").takeMove;
-var gen = require("../src/game/gen.js");
+var score = require("../../src/game/score.js");
+var mat = require("../../src/game/mat.js");
+var pst = require("../../src/game/pst.js");
+var node = require("../../src/game/_node.js");
+var rotate = require("../../src/helper/rotate.js");
+var pretty = require("../../src/helper/pretty.js");
+var arrayEqual = require("../../src/helper/arrayEqual.js").arrayEqual;
+var convert = require("../../src/helper/convert.js").convert;
+var reconvert = require("../../src/helper/reconvert.js").reconvert;
+var foconvert = require("../../src/helper/foconvert.js").foconvert;
+var takeMove = require("../../src/helper/takeMove.js").takeMove;
+var gen = require("../../src/game/gen.js");
 var chalk = require("chalk");
 var fs = require("fs");
 var ctx = new chalk.constructor({
@@ -86,7 +86,7 @@ for (var z=0;z<hist.length;++z){
   if (moves.indexOf(hist[z][0]) != -1) {
     root = takeMove(root, convert(hist[z][0]));
   }
-  fs.appendFileSync("out.txt",root.board);
+  //fs.appendFileSync("out.txt",root.board);
   root.board = rotate.rotate(root);
   root.turn = !root.turn;
   var moves = gen.gen(root);

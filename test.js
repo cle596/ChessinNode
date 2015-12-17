@@ -12,18 +12,18 @@ var tests = [
   "mat/mat4.js",
   "pos/pos1.js",
   "pos/pos2.js",
-  "gen1.js",
-  "gen2.js",
-  //"input1.js",
-  "arrayeq1.js",
-  "order1.js",
-  "board1.js",
-  "conv1.js",
-  "reconv1.js",
-  "foconv1.js",
-  "take1.js",
-  "sort1.js",
-  "match1.js"
+  "gen/gen1.js",
+  "gen/gen2.js",
+  //"helper/input1.js",
+  "helper/arrayeq1.js",
+  "helper/order1.js",
+  "helper/board1.js",
+  "helper/conv1.js",
+  "helper/reconv1.js",
+  "helper/foconv1.js",
+  "helper/take1.js",
+  "helper/sort1.js",
+  "match/match1.js"
 ];
 
 var i = 0;
