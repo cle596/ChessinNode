@@ -14,15 +14,41 @@ var ctx = new chalk.constructor({enabled: true});
 
 var ai = {};
 
-ai.search = function(n,depth,a,b,turn){
-  var moves = gen.gen(n);
+var max = 4;
+
+ai.search = function(root,depth,a,b,turn){
+  var moves = gen.gen(root);
   var nodes = [];
   for (var i=0;i<moves.length;++i){
-    nodes.push(node.Node(!turn,takeMove(n,moves[i])));
+    nodes.push(node.Node(!turn,takeMove(root,moves[i])));
   }
-  nodes.scoreSort();
+  nodes = scoreSort(nodes);
   for (var i=0;i<nodes.length;++i){
+    if (depth<3){
+      ai.search(nodes[i],depth-1,a,b,!turn);
+    }
+    else{
+      root.score = score.score(root);
+      if (turn){
+        if (root.score>a){
+          a = root.score;
+          return a;
+        }
+        else if (root.score<=b){
+          break;
+        }
+      }
+      else{
+        if (score.score(node)<b){
+          b = score.score(node);
+          return b;
+        }
+        else if (root.score>=a){
+          break;
+        }
+      }
 
+    }
   }
 };
 
