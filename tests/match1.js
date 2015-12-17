@@ -84,7 +84,7 @@ for (var z=0;z<hist.length;++z){
     arr[x] = foconvert(y);
   });
   if (moves.indexOf(hist[z][0]) != -1) {
-    root.board = takeMove(root, convert(hist[z][0]));
+    root = takeMove(root, convert(hist[z][0]));
   }
   fs.appendFileSync("out.txt",root.board);
   root.board = rotate.rotate(root);
@@ -99,11 +99,11 @@ for (var z=0;z<hist.length;++z){
     break;
   }
   if (moves.indexOf(hist[z][1]) != -1) {
-    root.board = takeMove(root, reconvert(hist[z][1]));
+    root = takeMove(root, reconvert(hist[z][1]));
   }
   root.board = rotate.rotate(root);
   root.turn = !root.turn;
-  fs.appendFileSync("out.txt",root.board);
+  //fs.appendFileSync("out.txt",root.board);
 }
 
 

@@ -70,7 +70,8 @@ var registerCas = function(node,move){
       b[95] = "R";
     }
   }
-  return b.join("");
+  node.board = b.join("");
+  return node;
 }
 
 var takeMove = function(node,move){
@@ -86,8 +87,8 @@ var takeMove = function(node,move){
   }
   b[move[0]] = ".";
   node.board = b.join("");
-  b = registerCas(node,move);
-  return b;
+  node = registerCas(node,move);
+  return node;
 }
 
 exports.takeMove = takeMove;

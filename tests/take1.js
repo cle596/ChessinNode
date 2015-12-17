@@ -13,7 +13,7 @@ var chalk = require("chalk");
 var ctx = new chalk.constructor({enabled: true});
 
 var root = node.Node(true);
-root.board = takeMove(root,convert("b1c3"));
+root = takeMove(root,convert("b1c3"));
 
 var target =
   "         \n" +
