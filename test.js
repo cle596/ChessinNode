@@ -24,7 +24,8 @@ var tests = [
   "helper/take1.js",
   "helper/sort1.js",
   "match/match1.js",
-  "match/match2.js"
+  "match/match2.js",
+  "match/match3.js"
 ];
 
 var i = 0;
