@@ -18,7 +18,8 @@ var bound = 100000;
 var game = {};
 game.run = function(){
   var root = node.Node(true);
-  console.log(ai.search(root,4,-bound,bound,true));
+  root.root = true;
+  console.log(ai.search(root,1,-bound,bound,true));
 }
 
 game.run();

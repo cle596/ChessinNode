@@ -21,13 +21,12 @@ ai.search = function(n,depth,a,b,turn){
       return score.score(n);
     }
     var g = gen.gen(n);
+    var v;
     g.forEach(function(y,x,arr){
       child = takeMove(n,y);
       child.turn = !child.turn;
       child.board = rotate.rotate(child);
       v = ai.search(child,depth-1,a,b,!turn);
-      //console.log(v);
-      v = Math.max(a,v);
       if (v>a){
         a = v;
         best_move = y;
@@ -36,7 +35,7 @@ ai.search = function(n,depth,a,b,turn){
         return a;
       }
     });
-    if (depth == 4){
+    if (n.root){
       return best_move;
     }
     return v;
@@ -46,13 +45,12 @@ ai.search = function(n,depth,a,b,turn){
       return -score.score(n);
     }
     var g = gen.gen(n);
+    var v;
     g.forEach(function(y,x,arr){
       child = takeMove(n,y);
       child.turn = !child.turn;
       child.board = rotate.rotate(child);
       v = ai.search(child,depth-1,a,b,!turn);
-      //console.log(v);
-      v = Math.min(b,v);
       if (v<b){
         b = v;
       }
