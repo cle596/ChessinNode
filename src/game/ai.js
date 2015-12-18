@@ -19,9 +19,18 @@ ai.search = function(n,depth,a,b,turn){
     if (depth == 0){
       return score.score(n);
     }
-    var g = gen.gen(node);
+    var g = gen.gen(n);
     g.forEach(function(y,x,arr){
-      v = Math.max(a,ai.search(!turn,node.Node(n,take_move(n,y))));
+      v = Math.max(
+        a,
+        ai.search(
+          node.Node(!turn,takeMove(n,y).board),
+          depth-1,
+          a,
+          b,
+          !turn
+        )
+      );
       if (v>a){
         a = v;
       }
@@ -35,9 +44,18 @@ ai.search = function(n,depth,a,b,turn){
     if (depth == 0){
       return -score.score(n);
     }
-    var g = gen.gen(node);
+    var g = gen.gen(n);
     g.forEach(function(y,x,arr){
-      v = Math.min(b,ai.search(!turn,node.Node(n,take_move(n,y))));
+      v = Math.min(
+        b,
+        ai.search(
+          node.Node(!turn,takeMove(n,y).board),
+          depth-1,
+          a,
+          b,
+          !turn
+        )
+      );
       if (v<b){
         b = v;
       }

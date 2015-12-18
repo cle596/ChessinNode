@@ -13,12 +13,14 @@ var ai = require("./src/game/ai.js");
 var chalk = require("chalk");
 var ctx = new chalk.constructor({enabled: true});
 
-var game = {};
+var bound = 100000;
 
+var game = {};
 game.run = function(){
   var root = node.Node(true);
   root = takeMove(root,convert(input.prompt()));
   console.log(pretty.print(root));
+  console.log(ai.search(root,3,-bound,bound,true));
 }
 
 game.run();
