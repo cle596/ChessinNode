@@ -24,6 +24,7 @@ ai.search = function(n,depth,a,b,turn){
     g.forEach(function(y,x,arr){
       child = takeMove(n,y);
       child.turn = !child.turn;
+      child.board = rotate.rotate(child);
       v = ai.search(child,depth-1,a,b,!turn);
       //console.log(v);
       v = Math.max(a,v);
@@ -48,6 +49,7 @@ ai.search = function(n,depth,a,b,turn){
     g.forEach(function(y,x,arr){
       child = takeMove(n,y);
       child.turn = !child.turn;
+      child.board = rotate.rotate(child);
       v = ai.search(child,depth-1,a,b,!turn);
       //console.log(v);
       v = Math.min(b,v);
