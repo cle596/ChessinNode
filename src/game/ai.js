@@ -21,7 +21,7 @@ ai.search = function(n,depth,a,b,turn){
     }
     var g = gen.gen(node);
     g.forEach(function(y,x,arr){
-      v = Math.max(a,ai.search(node.Node(n,take_move(n,y))));
+      v = Math.max(a,ai.search(!turn,node.Node(n,take_move(n,y))));
       if (v>a){
         a = v;
       }
@@ -37,7 +37,7 @@ ai.search = function(n,depth,a,b,turn){
     }
     var g = gen.gen(node);
     g.forEach(function(y,x,arr){
-      v = Math.min(b,ai.search(node.Node(n,take_move(n,y))));
+      v = Math.min(b,ai.search(!turn,node.Node(n,take_move(n,y))));
       if (v<b){
         b = v;
       }
