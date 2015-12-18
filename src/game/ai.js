@@ -16,40 +16,34 @@ var ai = {};
 
 var max = 4;
 
-ai.search = function(root,depth,a,b,turn){
-  var moves = gen.gen(root);
-  var nodes = [];
-  for (var i=0;i<moves.length;++i){
-    nodes.push(node.Node(!turn,takeMove(root,moves[i])));
-  }
-  nodes = scoreSort(nodes);
-  for (var i=0;i<nodes.length;++i){
-    if (depth<3){
-      ai.search(nodes[i],depth-1,a,b,!turn);
+ai.search = function(n,depth,a,b,turn){
+  if (turn){
+    if (depth == 0){
+      return score.score(n);
     }
-    else{
-      root.score = score.score(root);
-      if (turn){
-        if (root.score>a){
-          a = root.score;
-          return a;
-        }
-        else if (root.score<=b){
-          break;
-        }
+    var g = gen.gen(node);
+    g.forEach(function(y,x,arr){
+      a = Math.max(a,ai.search(node.Node(n,take_move(n,y))));
+      if (b<=a){
+        return b;
       }
-      else{
-        if (score.score(node)<b){
-          b = score.score(node);
-          return b;
-        }
-        else if (root.score>=a){
-          break;
-        }
+    });
+    return a;
+  }
+  else{
+    if (depth == 0){
+      return -score.score(n);
+    }
+    var g = gen.gen(node);
+    g.forEach(function(y,x,arr){
+      b = Math.min(b,ai.search(node.Node(n,take_move(n,y))));
+      if (b<=a){
+        return a;
       }
+    });
+    return b;
+  }
 
-    }
-  }
 };
 
 module.exports = ai;

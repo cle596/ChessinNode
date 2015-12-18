@@ -9,7 +9,7 @@ node.Node = function(turn, board) {
     kr: true,
     qr: true,
     k: true,
-    score: 0
+    //score: 0
   };
   if (typeof(board) === "undefined") {
     node.board =
