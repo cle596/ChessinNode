@@ -83,7 +83,7 @@ for (var z=0;z<hist.length;++z){
   if (moves.indexOf(hist[z][0]) != -1) {
     root = takeMove(root, convert(hist[z][0]));
   }
-  fs.appendFileSync("out.txt",root.board);
+  //fs.appendFileSync("out.txt",root.board);
   root.board = rotate.rotate(root);
   root.turn = !root.turn;
   var moves = gen.gen(root);
@@ -95,7 +95,7 @@ for (var z=0;z<hist.length;++z){
   }
   root.board = rotate.rotate(root);
   root.turn = !root.turn;
-  fs.appendFileSync("out.txt",root.board);
+  //fs.appendFileSync("out.txt",root.board);
 }
 
 

@@ -14,8 +14,6 @@ var ctx = new chalk.constructor({enabled: true});
 
 var ai = {};
 
-var max = 4;
-
 ai.search = function(n,depth,a,b,turn){
   if (turn){
     if (depth == 0){
@@ -23,12 +21,15 @@ ai.search = function(n,depth,a,b,turn){
     }
     var g = gen.gen(node);
     g.forEach(function(y,x,arr){
-      a = Math.max(a,ai.search(node.Node(n,take_move(n,y))));
-      if (b<=a){
-        return b;
+      v = Math.max(a,ai.search(node.Node(n,take_move(n,y))));
+      if (v>a){
+        a = v;
+      }
+      if (v>=b){
+        return a;
       }
     });
-    return a;
+    return v;
   }
   else{
     if (depth == 0){
@@ -36,12 +37,15 @@ ai.search = function(n,depth,a,b,turn){
     }
     var g = gen.gen(node);
     g.forEach(function(y,x,arr){
-      b = Math.min(b,ai.search(node.Node(n,take_move(n,y))));
-      if (b<=a){
-        return a;
+      v = Math.min(b,ai.search(node.Node(n,take_move(n,y))));
+      if (v<b){
+        b = v;
+      }
+      if (v<=a){
+        return b;
       }
     });
-    return b;
+    return v;
   }
 
 };
