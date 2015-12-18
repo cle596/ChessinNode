@@ -11,6 +11,7 @@ var convert = require("../../src/helper/convert.js").convert;
 var takeMove = require("../../src/helper/takeMove.js").takeMove;
 var ai = require("../../src/game/ai.js");
 var chalk = require("chalk");
+var fs = require("fs");
 var ctx = new chalk.constructor({enabled: true});
 
 var bound = 100000;
@@ -19,7 +20,8 @@ var game = {};
 game.run = function(){
   var root = node.Node(true);
   root.root = true;
-  console.log(ai.search(root,1,-bound,bound,true));
+  console.log(ai.search(root,4,-bound,bound,true));
 }
 
+fs.writeFileSync("ai.txt","");
 game.run();

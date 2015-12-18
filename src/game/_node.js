@@ -1,5 +1,5 @@
 var node = {};
-node.Node = function(turn, board) {
+node.Node = function(turn,board,move) {
   var node = {
     turn: turn,
     pass: 0,
@@ -12,6 +12,12 @@ node.Node = function(turn, board) {
     root: false
     //score: 0
   };
+  if (typeof(move) === "undefined") {
+    node.move = "none";
+  }
+  else {
+    node.move = move;
+  }
   if (typeof(board) === "undefined") {
     node.board =
       "         \n" +

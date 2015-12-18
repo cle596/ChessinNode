@@ -62,7 +62,13 @@ score.posBoth = function(node){
 };
 
 score.score = function(node){
-  return score.matBoth(node)+score.posBoth(node);
+  if (node.turn){
+    return score.matBoth(node)+score.posBoth(node);
+  }
+  else{
+    node.board = rotate.rotate(node);
+    return score.matBoth(node)+score.posBoth(node);
+  }
 }
 
 module.exports = score;
