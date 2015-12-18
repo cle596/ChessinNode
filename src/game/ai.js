@@ -21,10 +21,12 @@ ai.search = function(n,depth,a,b,turn){
     }
     var g = gen.gen(n);
     g.forEach(function(y,x,arr){
+      child = takeMove(n,y);
+      child.turn = !child.turn;
       v = Math.max(
         a,
         ai.search(
-          node.Node(!turn,takeMove(n,y).board),
+          child,
           depth-1,
           a,
           b,
@@ -46,10 +48,12 @@ ai.search = function(n,depth,a,b,turn){
     }
     var g = gen.gen(n);
     g.forEach(function(y,x,arr){
+      child = takeMove(n,y);
+      child.turn = !child.turn;
       v = Math.min(
         b,
         ai.search(
-          node.Node(!turn,takeMove(n,y).board),
+          child,
           depth-1,
           a,
           b,
