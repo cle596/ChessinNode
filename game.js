@@ -1,14 +1,15 @@
-var score = require("./score.js");
-var mat = require("./mat.js");
-var pst = require("./pst.js");
-var node = require("./_node");
-var rotate = require("../helper/rotate.js");
-var pretty = require("../helper/pretty.js");
-var arrayEqual = require("../helper/arrayEqual.js").arrayEqual;
-var gen = require("./gen.js");
-var input = require("./input.js");
-var convert = require("../helper/convert.js").convert;
-var takeMove = require("../helper/takeMove.js").takeMove;
+var score = require("./src/game/score.js");
+var mat = require("./src/game/mat.js");
+var pst = require("./src/game/pst.js");
+var node = require("./src/game/_node");
+var rotate = require("./src/helper/rotate.js");
+var pretty = require("./src/helper/pretty.js");
+var arrayEqual = require("./src/helper/arrayEqual.js").arrayEqual;
+var gen = require("./src/game/gen.js");
+var input = require("./src/game/input.js");
+var convert = require("./src/helper/convert.js").convert;
+var takeMove = require("./src/helper/takeMove.js").takeMove;
+var ai = require("./src/game/ai.js");
 var chalk = require("chalk");
 var ctx = new chalk.constructor({enabled: true});
 
@@ -16,6 +17,8 @@ var game = {};
 
 game.run = function(){
   var root = node.Node(true);
-  root.board = takeMove(convert(input.prompt()));
-
+  root = takeMove(root,convert(input.prompt()));
+  console.log(pretty.print(root));
 }
+
+game.run();
