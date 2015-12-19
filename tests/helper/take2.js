@@ -13,7 +13,7 @@ var chalk = require("chalk");
 var ctx = new chalk.constructor({enabled: true});
 
 var root = node.Node(true);
-root = takeMove(root,[97,76]);
+new_root = takeMove(root,[97,76]);
 
 var target =
   "         \n" +
@@ -30,7 +30,7 @@ var target =
   "         \n";
 
 process.stdout.write("Take Move Test 2: ");
-if (root.board == target){
+if (root.board == target && new_root != root){
   process.stdout.write(ctx.green(String.fromCharCode(0x2714))+"\n");
 }
 else {

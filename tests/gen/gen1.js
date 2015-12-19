@@ -33,10 +33,11 @@ var target = [
 ];
 
 var root = node.Node(true);
+var constant = root.board;
 var moves = gen.gen(root);
 
 process.stdout.write("Gen Test 1: ");
-if (arrayEqual(moves,target)){
+if (arrayEqual(moves,target) && root.board == constant){
   process.stdout.write(ctx.green(String.fromCharCode(0x2714))+"\n");
 }
 else {
