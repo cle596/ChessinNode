@@ -74,21 +74,21 @@ var registerPass = function(node, move) {
   return node;
 }
 
-var takeMove = function(node, move) {
-  node = checkCas(node, move);
-  node = checkpass(node, move);
-  node = registerPass(node, move);
-  var b = node.board.split("");
-  if (checkQueen(node, move)) {
+var takeMove = function(nod, move) {
+  nod = checkCas(nod, move);
+  nod = checkpass(nod, move);
+  nod = registerPass(nod, move);
+  var b = nod.board.split("");
+  if (checkQueen(nod, move)) {
     b[move[1]] = 'Q';
   } else {
     var p = b[move[0]];
     b[move[1]] = p;
   }
   b[move[0]] = ".";
-  node.board = b.join("");
-  node = registerCas(node, move);
-  return node;
+  nod.board = b.join("");
+  nod = registerCas(nod, move);
+  return nod;
 }
 
 exports.takeMove = takeMove;
