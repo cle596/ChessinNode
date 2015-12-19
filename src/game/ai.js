@@ -14,85 +14,78 @@ var chalk = require("chalk");
 var ctx = new chalk.constructor({enabled: true});
 
 var ai = {};
+max = 4;
+visited = 0;
 
 ai.search = function(n,depth,a,b,turn,branch){
-  var best_move = "none?";
-  if (turn){
-    if (depth == 0){
-      s = score.score(n);
-      fs.appendFileSync("ai.txt",
-        "score: "+s.toString()+" depth: "+depth+" branch: "+branch.toString()+"\n"
-      );
-      return s;
-    }
-    var g = gen.gen(n);
-    var v;
-    g.forEach(function(y,x,arr){
-      child = takeMove(n,y);
-      child.turn = !child.turn;
+  visited += 1;
+  console.log("nodes visited: "+visited.toString());
+  if (turn) {
+    if (depth>0){
+      var g = gen.gen(n);
       if (n.root){
-        child.root = false;
+        best_move = g[0]
       }
-      child.board = rotate.rotate(child);
-      v = ai.search(child,depth-1,a,b,!turn,x);
-      if (v>a){
-        a = v;
-        fs.appendFileSync("ai.txt",
-          "new alpha: "+a.toString()+" depth: "+depth+" branch: "+x.toString()+"\n"
-        );
-        if (n.root){
-          best_move = y;
-          fs.appendFileSync("ai.txt",
-            "new best_move: "+best_move.toString()+" depth: "+depth+" branch: "+x.toString()+"\n"
-          );
+      g.forEach(function(y,x,arr){
+        child = node.Node(!turn,takeMove(n,y).board,y);
+        ret = ai.search(child,depth-1,a,b,!turn,x);
+        if (ret>a) {
+          new_a = ret;
+          if (new_a>=b){
+            return a;
+          }
+          else{
+            a = new_a;
+            if (n.root){
+              best_move = y;
+            }
+          }
         }
+      });
+      if (n.root){
+        return best_move;
       }
-      if (v>=b){
-        fs.appendFileSync("ai.txt",
-          "out of bounds white: "+v+" depth: "+depth+" branch: "+x.toString()+"\n"
-        );
+      else{
         return a;
       }
-    });
-    if (n.root){
-      return best_move;
     }
-    return v;
+    else {
+      return score.score(n);
+    }
   }
-  else{
-    if (depth == 0){
-      s = score.score(n);
-      fs.appendFileSync("ai.txt",
-        "score: "+s.toString()+" depth: "+depth+" branch: "+branch.toString()+"\n"
-      );
-      return s;
-    }
-    var g = gen.gen(n);
-    var v;
-    g.forEach(function(y,x,arr){
-      child = takeMove(n,y);
-      child.turn = !child.turn;
+  else {
+    if (depth>0){
+      var g = gen.gen(n);
       if (n.root){
-        child.root = false;
+        best_move = g[0]
       }
-      child.board = rotate.rotate(child);
-      v = ai.search(child,depth-1,a,b,!turn,x);
-      if (v<b){
-        b = v;
-        fs.appendFileSync("ai.txt",
-          "new beta: "+b.toString()+" depth: "+depth+" branch: "+x.toString()+"\n"
-        );
+      g.forEach(function(y,x,arr){
+        child = node.Node(!turn,takeMove(n,y).board,y);
+        ret = ai.search(child,depth-1,a,b,!turn,x);
+        if (ret<b) {
+          new_b = ret;
+          if (a>=new_b){
+            return b;
+          }
+          else{
+            b = new_b;
+            if (n.root){
+              best_move = y;
+            }
+          }
+        }
+      });
+      if (n.root){
+        return best_move;
       }
-      if (v<=a){
-        fs.appendFileSync("ai.txt",
-          "out of bounds black: "+v+" depth: "+depth+" branch: "+x.toString()+"\n"
-        );
+      else{
         return b;
       }
-    });
-    return v;
+    }
+    else {
+      return score.score(n);
+    }
   }
-
 };
 
 module.exports = ai;

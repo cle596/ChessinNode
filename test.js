@@ -12,6 +12,7 @@ var tests = [
   "mat/mat4.js",
   "pos/pos1.js",
   "pos/pos2.js",
+  "pos/pos3.js",
   "gen/gen1.js",
   "gen/gen2.js",
   //"helper/input1.js",
