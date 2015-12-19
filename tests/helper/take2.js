@@ -30,8 +30,10 @@ var target =
   "         \n";
 
 process.stdout.write("Take Move Test 2: ");
-if (root.board == target){
+if (new_root.board == target){
   process.stdout.write(ctx.green(String.fromCharCode(0x2714))+"\n");
+  console.log(new_root);
+  console.log(root);
 }
 else {
   process.stdout.write(ctx.red(String.fromCharCode(0x2717))+"\n");
