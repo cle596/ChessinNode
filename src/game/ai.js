@@ -22,7 +22,6 @@ ai.search = function(n,depth,a,b,turn,branch){
   if (turn) {
     if (depth>0){
       var g = gen.gen(n);
-      console.log(g);
       if (n.root){
         best_move = g[0]
       }
@@ -57,7 +56,6 @@ ai.search = function(n,depth,a,b,turn,branch){
   else {
     if (depth>0){
       var g = gen.gen(n);
-      console.log(g);
       if (n.root){
         best_move = g[0]
       }

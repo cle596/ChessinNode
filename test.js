@@ -15,6 +15,7 @@ var tests = [
   "pos/pos3.js",
   "gen/gen1.js",
   "gen/gen2.js",
+  "gen/gen3.js",
   //"helper/input1.js",
   "helper/arrayeq1.js",
   "helper/order1.js",
