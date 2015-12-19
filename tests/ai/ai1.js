@@ -22,7 +22,6 @@ game.run = function(){
   root.root = true;
   var move = ai.search(root,3,-bound,bound,true);
   root = takeMove(root,move);
-  /*
   var i=0;
   while (i<4){
     if (root.turn){
@@ -50,7 +49,6 @@ game.run = function(){
       i+=1;
     }
   }
-  */
 }
 
 fs.writeFileSync("ai.txt","");

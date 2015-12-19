@@ -13,8 +13,8 @@ var chalk = require("chalk");
 var ctx = new chalk.constructor({enabled: true});
 
 var root = node.Node(true);
-new_root = takeMove(root,[97,76]);
-new_root = takeMove(root,[34,54]);
+new_root = takeMove(node.Node(true,root.board),[97,76]);
+new_root = takeMove(node.Node(false,new_root.board),[34,54]);
 
 var target =
   "         \n" +

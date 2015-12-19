@@ -27,12 +27,10 @@ var tests = [
   "helper/take2.js",
   "helper/pretty1.js",
   "helper/sort1.js",
-  /*
   "match/match1.js",
   "match/match2.js",
   "match/match3.js",
-  */
-  //"ai/ai1.js"
+  "ai/ai1.js"
 ];
 
 var i = 0;

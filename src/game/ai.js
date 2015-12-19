@@ -26,8 +26,7 @@ ai.search = function(n,depth,a,b,turn,branch){
         best_move = g[0]
       }
       g.forEach(function(y,x,arr){
-        child = takeMove(n,y);
-        child.turn = !child.turn;
+        child = takeMove(node.Node(!turn,n.board,y),y);
         ret = ai.search(child,depth-1,a,b,!turn,x);
         if (ret>a) {
           new_a = ret;
@@ -60,7 +59,7 @@ ai.search = function(n,depth,a,b,turn,branch){
         best_move = g[0]
       }
       g.forEach(function(y,x,arr){
-        child = takeMove(n,y);
+        child = takeMove(node.Node(!turn,n.board,y),y);
         child.turn = !child.turn;
         ret = ai.search(child,depth-1,a,b,!turn,x);
         if (ret<b) {
