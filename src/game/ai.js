@@ -22,11 +22,13 @@ ai.search = function(n,depth,a,b,turn,branch){
   if (turn) {
     if (depth>0){
       var g = gen.gen(n);
+      console.log(g);
       if (n.root){
         best_move = g[0]
       }
       g.forEach(function(y,x,arr){
-        child = node.Node(!turn,takeMove(n,y).board,y);
+        child = takeMove(n,y);
+        child.turn = !child.turn;
         ret = ai.search(child,depth-1,a,b,!turn,x);
         if (ret>a) {
           new_a = ret;
@@ -55,11 +57,13 @@ ai.search = function(n,depth,a,b,turn,branch){
   else {
     if (depth>0){
       var g = gen.gen(n);
+      console.log(g);
       if (n.root){
         best_move = g[0]
       }
       g.forEach(function(y,x,arr){
-        child = node.Node(!turn,takeMove(n,y).board,y);
+        child = takeMove(n,y);
+        child.turn = !child.turn;
         ret = ai.search(child,depth-1,a,b,!turn,x);
         if (ret<b) {
           new_b = ret;

@@ -21,10 +21,7 @@ game.run = function(){
   var root = node.Node(true);
   root.root = true;
   var move = ai.search(root,3,-bound,bound,true);
-  console.log(move);
-  console.log(root);
   root = takeMove(root,move);
-  console.log(pretty.print(root));
   /*
   var i=0;
   while (i<4){
