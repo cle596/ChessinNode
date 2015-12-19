@@ -14,12 +14,11 @@ var chalk = require("chalk");
 var ctx = new chalk.constructor({enabled: true});
 
 var ai = {};
-max = 4;
 visited = 0;
 
 ai.search = function(n,depth,a,b,turn,branch){
-  visited += 1;
-  console.log("nodes visited: "+visited.toString());
+  //visited += 1;
+  //console.log("nodes visited: "+visited.toString());
   if (turn) {
     if (depth>0){
       var g = gen.gen(n);

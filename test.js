@@ -23,6 +23,8 @@ var tests = [
   "helper/reconv1.js",
   "helper/foconv1.js",
   "helper/take1.js",
+  "helper/take2.js",
+  "helper/pretty1.js",
   "helper/sort1.js",
   "match/match1.js",
   "match/match2.js",

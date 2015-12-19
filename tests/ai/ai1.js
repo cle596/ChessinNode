@@ -20,7 +20,33 @@ var game = {};
 game.run = function(){
   var root = node.Node(true);
   root.root = true;
-  console.log(ai.search(root,4,-bound,bound,true));
+  var i=0;
+  while (i<4){
+    if (root.turn){
+      var move = ai.search(root,3,-bound,bound,true);
+      console.log(move);
+      console.log(typeof(move));
+      console.log(move.length,move[0],move[1]);
+      console.log(typeof(move[0]),typeof(move[1]));
+      console.log(pretty.print(root));
+      root = takeMove(root,move);
+      console.log(pretty.print(root));
+      fs.appendFileSync("ai.txt",pretty.print(root));
+      root.board = rotate.rotate(root);
+      root.turn = !root.turn;
+      i+=1;
+    }
+    else {
+      var move = ai.search(root,3,-bound,bound,false);
+      console.log(move);
+      root = takeMove(root,move);
+      root.board = rotate.rotate(root);
+      root.turn = !root.turn;
+      console.log(pretty.print(root));
+      fs.appendFileSync("ai.txt",pretty.print(root));
+      i+=1;
+    }
+  }
 }
 
 fs.writeFileSync("ai.txt","");
