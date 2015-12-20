@@ -26,6 +26,7 @@ game.run = function(){
       var move = ai.search(root,3,-bound,bound,true);
       root = takeMove(node.Node(true,root.board,move),move);
       root.root = true;
+      //fs.appendFileSync("ai.txt",JSON.stringify(root)+"\r\n");
       console.log(pretty.print(root));
       root.board = rotate.rotate(root);
       root.turn = !root.turn;
@@ -36,6 +37,7 @@ game.run = function(){
       console.log(move);
       root = takeMove(node.Node(false,root.board,move),move);
       root.root = true;
+      //fs.appendFileSync("ai.txt",JSON.stringify(root)+"\r\n");
       root.board = rotate.rotate(root);
       root.turn = !root.turn;
       console.log(pretty.print(root));

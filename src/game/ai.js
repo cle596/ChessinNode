@@ -23,9 +23,12 @@ ai.search = function(n,depth,a,b,turn,branch){
   if (turn) {
     if (depth>0){
       var g = gen.gen(n);
+      if (g.length<5){
+        fs.appendFileSync("ai.txt","GEN\r\n"+g.toString()+"\r\n");
+      }
       if (n.root){
         best_move = g[0];
-        fs.appendFileSync("ai.txt","GEN\r\n"+g.toString()+"\r\n");
+        //fs.appendFileSync("ai.txt","GEN\r\n"+g.toString()+"\r\n");
       }
       g.forEach(function(y,x,arr){
         child = takeMove(node.Node(!turn,n.board,y),y);
@@ -55,13 +58,16 @@ ai.search = function(n,depth,a,b,turn,branch){
     else {
       s=score.score(n);
       //console.log(s);
-      fs.appendFileSync("ai.txt",s.toString()+"\r\n");
+      //fs.appendFileSync("ai.txt",s.toString()+"\r\n");
       return s;
     }
   }
   else {
     if (depth>0){
       var g = gen.gen(n);
+      if (g.length<5){
+        fs.appendFileSync("ai.txt","GEN\r\n"+g.toString()+"\r\n");
+      }
       if (n.root){
         best_move = g[0]
       }
@@ -94,7 +100,7 @@ ai.search = function(n,depth,a,b,turn,branch){
     else {
       s=-score.score(n);
       //console.log(s);
-      fs.appendFileSync("ai.txt",s.toString()+"\r\n");
+      //fs.appendFileSync("ai.txt",s.toString()+"\r\n");
       return s;
     }
   }
