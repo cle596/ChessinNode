@@ -24,7 +24,8 @@ ai.search = function(n,depth,a,b,turn,branch){
     if (depth>0){
       var g = gen.gen(n);
       if (n.root){
-        best_move = g[0]
+        best_move = g[0];
+        fs.appendFileSync("ai.txt","GEN\r\n"+g.toString()+"\r\n");
       }
       g.forEach(function(y,x,arr){
         child = takeMove(node.Node(!turn,n.board,y),y);
