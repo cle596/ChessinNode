@@ -27,6 +27,7 @@ ai.search = function(n,depth,a,b,turn,branch){
       }
       g.forEach(function(y,x,arr){
         child = takeMove(node.Node(!turn,n.board,y),y);
+        fs.appendFileSync("ai.txt",pretty.print(child));
         ret = ai.search(child,depth-1,a,b,!turn,x);
         if (ret>a) {
           new_a = ret;
@@ -60,6 +61,7 @@ ai.search = function(n,depth,a,b,turn,branch){
       }
       g.forEach(function(y,x,arr){
         child = takeMove(node.Node(!turn,n.board,y),y);
+        fs.appendFileSync("ai.txt",pretty.print(child));
         child.turn = !child.turn;
         ret = ai.search(child,depth-1,a,b,!turn,x);
         if (ret<b) {

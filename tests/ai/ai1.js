@@ -27,7 +27,6 @@ game.run = function(){
       root = takeMove(node.Node(true,root.board,move),move);
       root.root = true;
       console.log(pretty.print(root));
-      fs.appendFileSync("ai.txt",pretty.print(root));
       root.board = rotate.rotate(root);
       root.turn = !root.turn;
       i+=1;
@@ -40,7 +39,6 @@ game.run = function(){
       root.board = rotate.rotate(root);
       root.turn = !root.turn;
       console.log(pretty.print(root));
-      fs.appendFileSync("ai.txt",pretty.print(root));
       i+=1;
     }
   }
