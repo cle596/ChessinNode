@@ -21,7 +21,7 @@ game.run = function(){
   var root = node.Node(true);
   root.root = true;
   var i=0;
-  while (i<4){
+  while (i<20){
     if (root.turn){
       var move = ai.search(root,3,-bound,bound,true);
       root = takeMove(node.Node(true,root.board,move),move);
@@ -44,5 +44,5 @@ game.run = function(){
   }
 }
 
-fs.writeFileSync("ai.txt","");
+//fs.writeFileSync("../ai.txt","");
 game.run();
