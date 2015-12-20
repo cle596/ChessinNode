@@ -16,16 +16,13 @@ var ctx = new chalk.constructor({enabled: true});
 var ai = {};
 visited = 0;
 
-ai.search = function(n,depth,a,b,turn,branch){
+ai.ab = function(n,depth,a,b,turn,branch){
   //fs.appendFileSync("ai.txt","visit\n");
   //visited += 1;
   //console.log("nodes visited: "+visited.toString());
   if (turn) {
     if (depth>0){
       var g = gen.gen(n);
-      if (g.length<5){
-        fs.appendFileSync("ai.txt","GEN\r\n"+g.toString()+"\r\n");
-      }
       if (n.root){
         best_move = g[0];
         //fs.appendFileSync("ai.txt","GEN\r\n"+g.toString()+"\r\n");
@@ -34,7 +31,7 @@ ai.search = function(n,depth,a,b,turn,branch){
         child = takeMove(node.Node(!turn,n.board,y),y);
         child.board = rotate.rotate(child);
         //fs.appendFileSync("../ai.txt",pretty.print(child));
-        ret = ai.search(child,depth-1,a,b,!turn,x);
+        ret = ai.ab(child,depth-1,a,b,!turn,x);
         if (ret>a) {
           new_a = ret;
           if (new_a>=b){
@@ -49,7 +46,10 @@ ai.search = function(n,depth,a,b,turn,branch){
         }
       });
       if (n.root){
-        return best_move;
+        return {
+          value: a,
+          move: best_move
+        };
       }
       else{
         return a;
@@ -65,9 +65,6 @@ ai.search = function(n,depth,a,b,turn,branch){
   else {
     if (depth>0){
       var g = gen.gen(n);
-      if (g.length<5){
-        fs.appendFileSync("ai.txt","GEN\r\n"+g.toString()+"\r\n");
-      }
       if (n.root){
         best_move = g[0]
       }
@@ -76,7 +73,7 @@ ai.search = function(n,depth,a,b,turn,branch){
         child.board = rotate.rotate(child);
         //fs.appendFileSync("../ai.txt",pretty.print(child));
         child.turn = !child.turn;
-        ret = ai.search(child,depth-1,a,b,!turn,x);
+        ret = ai.ab(child,depth-1,a,b,!turn,x);
         if (ret<b) {
           new_b = ret;
           if (a>=new_b){
@@ -91,7 +88,10 @@ ai.search = function(n,depth,a,b,turn,branch){
         }
       });
       if (n.root){
-        return best_move;
+        return {
+          value: b,
+          move: best_move
+        };
       }
       else{
         return b;
@@ -105,5 +105,32 @@ ai.search = function(n,depth,a,b,turn,branch){
     }
   }
 };
+
+ai.search = function(n,f,d,turn){
+  var g = f;
+  var upper = 100000;
+  var lower = -100000;
+  var b;
+  var ret;
+  var move;
+  while (lower<upper){
+    if (g == lower){
+      b = g+1;
+    }
+    else{
+      b = g;
+    }
+    ret = ai.ab(n,d,b-1,b,turn);
+    g = ret.value;
+    move = ret.move;
+    if (g<b){
+      upper = g;
+    }
+    else {
+      lower = g;
+    }
+  }
+  return move;
+}
 
 module.exports = ai;
