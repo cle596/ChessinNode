@@ -21,7 +21,7 @@ game.run = function(){
   var root = node.Node(true);
   root.root = true;
   var i=0;
-  while (i<1){
+  while (i<6){
     if (root.turn){
       var move = ai.search(root,3,-bound,bound,true);
       root = takeMove(node.Node(true,root.board,move),move);
