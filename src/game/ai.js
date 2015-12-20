@@ -17,6 +17,7 @@ var ai = {};
 visited = 0;
 
 ai.search = function(n,depth,a,b,turn,branch){
+  //fs.appendFileSync("ai.txt","visit\n");
   //visited += 1;
   //console.log("nodes visited: "+visited.toString());
   if (turn) {
@@ -51,7 +52,10 @@ ai.search = function(n,depth,a,b,turn,branch){
       }
     }
     else {
-      return score.score(n);
+      s=score.score(n);
+      //console.log(s);
+      fs.appendFileSync("ai.txt",s.toString()+"\r\n");
+      return s;
     }
   }
   else {
@@ -87,7 +91,10 @@ ai.search = function(n,depth,a,b,turn,branch){
       }
     }
     else {
-      return -score.score(n);
+      s=-score.score(n);
+      //console.log(s);
+      fs.appendFileSync("ai.txt",s.toString()+"\r\n");
+      return s;
     }
   }
 };
