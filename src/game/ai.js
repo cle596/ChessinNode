@@ -83,7 +83,7 @@ ai.search = function(n,depth,a,b,turn,branch){
       }
     }
     else {
-      return score.score(n);
+      return -score.score(n);
     }
   }
 };

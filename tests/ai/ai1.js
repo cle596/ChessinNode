@@ -20,18 +20,12 @@ var game = {};
 game.run = function(){
   var root = node.Node(true);
   root.root = true;
-  var move = ai.search(root,3,-bound,bound,true);
-  root = takeMove(root,move);
   var i=0;
   while (i<4){
     if (root.turn){
       var move = ai.search(root,3,-bound,bound,true);
-      console.log(move);
-      console.log(typeof(move));
-      console.log(move.length,move[0],move[1]);
-      console.log(typeof(move[0]),typeof(move[1]));
-      console.log(pretty.print(root));
-      root = takeMove(root,move);
+      root = takeMove(node.Node(true,root.board,move),move);
+      root.root = true;
       console.log(pretty.print(root));
       fs.appendFileSync("ai.txt",pretty.print(root));
       root.board = rotate.rotate(root);
@@ -41,7 +35,8 @@ game.run = function(){
     else {
       var move = ai.search(root,3,-bound,bound,false);
       console.log(move);
-      root = takeMove(root,move);
+      root = takeMove(node.Node(false,root.board,move),move);
+      root.root = true;
       root.board = rotate.rotate(root);
       root.turn = !root.turn;
       console.log(pretty.print(root));
