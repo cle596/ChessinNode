@@ -16,14 +16,24 @@ var ctx = new chalk.constructor({enabled: true});
 var ai = {};
 visited = 0;
 
-var order = function(g){
-  g.forEach(function(y,x,arr){
-    arr[x].score = score.score(y);
-  });
-  g.sort(function(a, b) {
-      return a.score - b.score;
-  });
-  return g;
+var order = function(c){
+  if (c.turn){
+    c.forEach(function(y,x,arr){
+      arr[x].score = score.score(y);
+    });
+    c.sort(function(a, b) {
+        return b.score - a.score;
+    });
+  }
+  else {
+    c.forEach(function(y,x,arr){
+      arr[x].score = -score.score(y);
+    });
+    c.sort(function(a, b) {
+        return a.score - b.score;
+    });
+  }
+  return c;
 }
 
 ai.ab = function(n,depth,a,b,turn,branch){
@@ -37,11 +47,15 @@ ai.ab = function(n,depth,a,b,turn,branch){
         best_move = g[0];
         //fs.appendFileSync("ai.txt","GEN\r\n"+g.toString()+"\r\n");
       }
+      var c = [];
       g.forEach(function(y,x,arr){
         child = takeMove(node.Node(!turn,n.board,y),y);
         child.board = rotate.rotate(child);
+        c.push(child);
+      });
+      c.forEach(function(y,x,arr){
         //fs.appendFileSync("../ai.txt",pretty.print(child));
-        ret = ai.ab(child,depth-1,a,b,!turn,x);
+        ret = ai.ab(y,depth-1,a,b,!turn,x);
         if (ret>a) {
           new_a = ret;
           if (new_a>=b){
@@ -50,7 +64,7 @@ ai.ab = function(n,depth,a,b,turn,branch){
           else{
             a = new_a;
             if (n.root){
-              best_move = y;
+              best_move = y.move;
             }
           }
         }
@@ -76,14 +90,18 @@ ai.ab = function(n,depth,a,b,turn,branch){
     if (depth>0){
       var g = gen.gen(n);
       if (n.root){
-        best_move = g[0]
+        best_move = g[0];
+        //fs.appendFileSync("ai.txt","GEN\r\n"+g.toString()+"\r\n");
       }
+      var c = [];
       g.forEach(function(y,x,arr){
         child = takeMove(node.Node(!turn,n.board,y),y);
         child.board = rotate.rotate(child);
+        c.push(child);
+      });
+      c.forEach(function(y,x,arr){
         //fs.appendFileSync("../ai.txt",pretty.print(child));
-        child.turn = !child.turn;
-        ret = ai.ab(child,depth-1,a,b,!turn,x);
+        ret = ai.ab(y,depth-1,a,b,!turn,x);
         if (ret<b) {
           new_b = ret;
           if (a>=new_b){
@@ -92,7 +110,7 @@ ai.ab = function(n,depth,a,b,turn,branch){
           else{
             b = new_b;
             if (n.root){
-              best_move = y;
+              best_move = y.move;
             }
           }
         }
