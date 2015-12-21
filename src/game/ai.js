@@ -67,19 +67,19 @@ ai.ab = function(n, depth, a, b, turn, branch) {
       }
       var c = [];
       g.forEach(function(y, x, arr) {
-        child = takeMove(node.Node(!turn, n.board, y), y);
-        child.board = rotate.rotate(child);
-        c.push(child);
+        c.push(takeMove(node.Node(!turn, n.board, y), y));
+        c[c.length-1].board = rotate.rotate(c[c.length-1]);
       });
       c = order(c);
       c.forEach(function(y, x, arr) {
         //fs.appendFileSync("../ai.txt",pretty.print(child));
-        ret = ai.ab(y, depth - 1, a, b, !turn, x);
+        ret = ai.ab(y, depth - 1, a, b, !turn, y.move);
         if (ret > a) {
           new_a = ret;
           if (new_a >= b) {
             return b;
-          } else {
+          }
+          if (new_a>a){
             a = new_a;
             if (n.root) {
               best_move = y.move;
@@ -110,19 +110,19 @@ ai.ab = function(n, depth, a, b, turn, branch) {
       }
       var c = [];
       g.forEach(function(y, x, arr) {
-        child = takeMove(node.Node(!turn, n.board, y), y);
-        child.board = rotate.rotate(child);
-        c.push(child);
+        c.push(takeMove(node.Node(!turn, n.board, y), y));
+        c[c.length-1].board = rotate.rotate(c[c.length-1]);
       });
       c = order(c);
       c.forEach(function(y, x, arr) {
         //fs.appendFileSync("../ai.txt",pretty.print(child));
-        ret = ai.ab(y, depth - 1, a, b, !turn, x);
+        ret = ai.ab(y, depth - 1, a, b, !turn, y.move);
         if (ret < b) {
           new_b = ret;
           if (a >= new_b) {
             return a;
-          } else {
+          }
+          if (new_b<b) {
             b = new_b;
             if (n.root) {
               best_move = y.move;
@@ -146,7 +146,7 @@ ai.ab = function(n, depth, a, b, turn, branch) {
     }
   }
 };
-/*
+
 ai.search = function(n,f,d,turn){
   var g = f;
   var upper = 100000;
@@ -155,6 +155,7 @@ ai.search = function(n,f,d,turn){
   var ret;
   var move;
   while (lower<upper){
+    console.log(lower,upper);
     if (g == lower){
       b = g+1;
     }
@@ -163,7 +164,6 @@ ai.search = function(n,f,d,turn){
     }
     ret = ai.ab(n,d,b-1,b,turn);
     g = ret.value;
-    console.log(g);
     move = ret.move;
     if (g<b){
       upper = g;
@@ -174,5 +174,5 @@ ai.search = function(n,f,d,turn){
   }
   return move;
 }
-*/
+
 module.exports = ai;
