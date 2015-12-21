@@ -9,8 +9,8 @@ node.Node = function(turn,board,move) {
     kr: true,
     qr: true,
     k: true,
-    root: false
-    //score: 0
+    root: false,
+    score: 0
   };
   if (typeof(move) === "undefined") {
     node.move = "none";

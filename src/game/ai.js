@@ -16,6 +16,16 @@ var ctx = new chalk.constructor({enabled: true});
 var ai = {};
 visited = 0;
 
+var order = function(g){
+  g.forEach(function(y,x,arr){
+    arr[x].score = score.score(y);
+  });
+  g.sort(function(a, b) {
+      return a.score - b.score;
+  });
+  return g;
+}
+
 ai.ab = function(n,depth,a,b,turn,branch){
   //fs.appendFileSync("ai.txt","visit\n");
   //visited += 1;
