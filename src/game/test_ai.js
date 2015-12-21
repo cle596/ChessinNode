@@ -18,8 +18,8 @@ var ai = {};
 visited = 0;
 
 var step = function(msg){
-  var move = readlineSync.question(msg+'::s? ');
-  if (move == "s"){
+  var move = readlineSync.question(msg+'step? ');
+  if (move == ""){
     return true;
   }
   else{
