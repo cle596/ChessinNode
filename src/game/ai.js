@@ -11,122 +11,135 @@ var convert = require("../helper/convert.js").convert;
 var takeMove = require("../helper/takeMove.js").takeMove;
 var fs = require("fs");
 var chalk = require("chalk");
-var ctx = new chalk.constructor({enabled: true});
+var ctx = new chalk.constructor({
+  enabled: true
+});
 
 var ai = {};
 visited = 0;
 
-var order = function(c){
-  if (c.turn){
-    c.forEach(function(y,x,arr){
+var order = function(c) {
+  if (c[0].turn){
+    c.forEach(function(y, x, arr) {
       arr[x].score = score.score(y);
     });
     c.sort(function(a, b) {
-        return b.score - a.score;
+      if (a.score<b.score){
+        return 1;
+      }
+      else if (a.score==b.score){
+        return 0;
+      }
+      else {
+        return -1;
+      }
     });
   }
-  else {
-    c.forEach(function(y,x,arr){
+  else{
+    c.forEach(function(y, x, arr) {
       arr[x].score = -score.score(y);
     });
     c.sort(function(a, b) {
-        return a.score - b.score;
+      if (a.score<b.score){
+        return -1;
+      }
+      else if (a.score==b.score){
+        return 0;
+      }
+      else {
+        return 1;
+      }
     });
   }
   return c;
 }
 
-ai.ab = function(n,depth,a,b,turn,branch){
+ai.ab = function(n, depth, a, b, turn, branch) {
   //fs.appendFileSync("ai.txt","visit\n");
   //visited += 1;
   //console.log("nodes visited: "+visited.toString());
   if (turn) {
-    if (depth>0){
+    if (depth > 0) {
       var g = gen.gen(n);
-      if (n.root){
+      if (n.root) {
         best_move = g[0];
         //fs.appendFileSync("ai.txt","GEN\r\n"+g.toString()+"\r\n");
       }
       var c = [];
-      g.forEach(function(y,x,arr){
-        child = takeMove(node.Node(!turn,n.board,y),y);
+      g.forEach(function(y, x, arr) {
+        child = takeMove(node.Node(!turn, n.board, y), y);
         child.board = rotate.rotate(child);
         c.push(child);
       });
-      c.forEach(function(y,x,arr){
+      c = order(c);
+      c.forEach(function(y, x, arr) {
         //fs.appendFileSync("../ai.txt",pretty.print(child));
-        ret = ai.ab(y,depth-1,a,b,!turn,x);
-        if (ret>a) {
+        ret = ai.ab(y, depth - 1, a, b, !turn, x);
+        if (ret > a) {
           new_a = ret;
-          if (new_a>=b){
+          if (new_a >= b) {
             return b;
-          }
-          else{
+          } else {
             a = new_a;
-            if (n.root){
+            if (n.root) {
               best_move = y.move;
             }
           }
         }
       });
-      if (n.root){
+      if (n.root) {
         return {
           value: a,
           move: best_move
         };
-      }
-      else{
+      } else {
         return a;
       }
-    }
-    else {
-      s=score.score(n);
+    } else {
+      s = score.score(n);
       //console.log(s);
       //fs.appendFileSync("ai.txt",s.toString()+"\r\n");
       return s;
     }
-  }
-  else {
-    if (depth>0){
+  } else {
+    if (depth > 0) {
       var g = gen.gen(n);
-      if (n.root){
+      if (n.root) {
         best_move = g[0];
         //fs.appendFileSync("ai.txt","GEN\r\n"+g.toString()+"\r\n");
       }
       var c = [];
-      g.forEach(function(y,x,arr){
-        child = takeMove(node.Node(!turn,n.board,y),y);
+      g.forEach(function(y, x, arr) {
+        child = takeMove(node.Node(!turn, n.board, y), y);
         child.board = rotate.rotate(child);
         c.push(child);
       });
-      c.forEach(function(y,x,arr){
+      c = order(c);
+      c.forEach(function(y, x, arr) {
         //fs.appendFileSync("../ai.txt",pretty.print(child));
-        ret = ai.ab(y,depth-1,a,b,!turn,x);
-        if (ret<b) {
+        ret = ai.ab(y, depth - 1, a, b, !turn, x);
+        if (ret < b) {
           new_b = ret;
-          if (a>=new_b){
+          if (a >= new_b) {
             return a;
-          }
-          else{
+          } else {
             b = new_b;
-            if (n.root){
+            if (n.root) {
               best_move = y.move;
             }
           }
         }
       });
-      if (n.root){
+      if (n.root) {
         return {
           value: b,
           move: best_move
         };
-      }
-      else{
+      } else {
         return b;
       }
-    }
-    else {
-      s=-1*score.score(n);
+    } else {
+      s = -1 * score.score(n);
       //console.log(s);
       //fs.appendFileSync("ai.txt",s.toString()+"\r\n");
       return s;
