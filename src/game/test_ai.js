@@ -11,26 +11,41 @@ var convert = require("../helper/convert.js").convert;
 var takeMove = require("../helper/takeMove.js").takeMove;
 var fs = require("fs");
 var chalk = require("chalk");
+var readlineSync = require('readline-sync');
 var ctx = new chalk.constructor({enabled: true});
 
 var ai = {};
 visited = 0;
 
+var step = function(msg){
+  var move = readlineSync.question(msg+'::s? ');
+  if (move == "s"){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+var format = function(d,a,b,turn){
+  return "depth: "+d.toString()+" "
+    + "alpha: "+a.toString()+" "
+    + "beta: "+b.toString()+" "
+    + "turn: "+turn.toString()+" ";
+}
+
 ai.ab = function(n,depth,a,b,turn,branch){
-  //fs.appendFileSync("ai.txt","visit\n");
-  //visited += 1;
-  //console.log("nodes visited: "+visited.toString());
   if (turn) {
     if (depth>0){
-      var g = gen.gen(n);
+      if (step(format(depth,a,b,turn))){
+        var g = gen.gen(n);
+      }
       if (n.root){
         best_move = g[0];
-        //fs.appendFileSync("ai.txt","GEN\r\n"+g.toString()+"\r\n");
       }
       g.forEach(function(y,x,arr){
         child = takeMove(node.Node(!turn,n.board,y),y);
         child.board = rotate.rotate(child);
-        //fs.appendFileSync("../ai.txt",pretty.print(child));
         ret = ai.ab(child,depth-1,a,b,!turn,x);
         if (ret>a) {
           new_a = ret;
@@ -57,21 +72,20 @@ ai.ab = function(n,depth,a,b,turn,branch){
     }
     else {
       s=score.score(n);
-      //console.log(s);
-      //fs.appendFileSync("ai.txt",s.toString()+"\r\n");
       return s;
     }
   }
   else {
     if (depth>0){
-      var g = gen.gen(n);
+      if (step(format(depth,a,b,turn))){
+        var g = gen.gen(n);
+      }
       if (n.root){
         best_move = g[0]
       }
       g.forEach(function(y,x,arr){
         child = takeMove(node.Node(!turn,n.board,y),y);
         child.board = rotate.rotate(child);
-        //fs.appendFileSync("../ai.txt",pretty.print(child));
         child.turn = !child.turn;
         ret = ai.ab(child,depth-1,a,b,!turn,x);
         if (ret<b) {
@@ -99,39 +113,9 @@ ai.ab = function(n,depth,a,b,turn,branch){
     }
     else {
       s=-score.score(n);
-      //console.log(s);
-      //fs.appendFileSync("ai.txt",s.toString()+"\r\n");
       return s;
     }
   }
 };
-/*
-ai.search = function(n,f,d,turn){
-  var g = f;
-  var upper = 100000;
-  var lower = -100000;
-  var b;
-  var ret;
-  var move;
-  while (lower<upper){
-    if (g == lower){
-      b = g+1;
-    }
-    else{
-      b = g;
-    }
-    ret = ai.ab(n,d,b-1,b,turn);
-    g = ret.value;
-    console.log(g);
-    move = ret.move;
-    if (g<b){
-      upper = g;
-    }
-    else {
-      lower = g;
-    }
-  }
-  return move;
-}
-*/
+
 module.exports = ai;

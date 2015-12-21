@@ -9,7 +9,7 @@ var gen = require("../../src/game/gen.js");
 var input = require("../../src/game/input.js");
 var convert = require("../../src/helper/convert.js").convert;
 var takeMove = require("../../src/helper/takeMove.js").takeMove;
-var ai = require("../../src/game/ai.js");
+var ai = require("../../src/game/test_ai.js");
 var chalk = require("chalk");
 var fs = require("fs");
 var ctx = new chalk.constructor({enabled: true});
@@ -20,7 +20,7 @@ var game = {};
 game.run = function(){
   var root = node.Node(true);
   root.root = true;
-  var move = ai.search(root,0,3,true);
+  var move = ai.ab(root,3,-bound,bound,true);
   console.log(move);
   /*
   var i=0;
