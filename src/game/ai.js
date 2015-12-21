@@ -35,7 +35,7 @@ ai.ab = function(n,depth,a,b,turn,branch){
         if (ret>a) {
           new_a = ret;
           if (new_a>=b){
-            return a;
+            return b;
           }
           else{
             a = new_a;
@@ -77,7 +77,7 @@ ai.ab = function(n,depth,a,b,turn,branch){
         if (ret<b) {
           new_b = ret;
           if (a>=new_b){
-            return b;
+            return a;
           }
           else{
             b = new_b;
@@ -98,7 +98,7 @@ ai.ab = function(n,depth,a,b,turn,branch){
       }
     }
     else {
-      s=-score.score(n);
+      s=-1*score.score(n);
       //console.log(s);
       //fs.appendFileSync("ai.txt",s.toString()+"\r\n");
       return s;

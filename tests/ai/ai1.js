@@ -20,13 +20,11 @@ var game = {};
 game.run = function(){
   var root = node.Node(true);
   root.root = true;
-  var move = ai.ab(root,3,-bound,bound,true);
-  console.log(move);
-  /*
   var i=0;
   while (i<6){
     if (root.turn){
-      var move = ai.search(root,0,3,true);
+      var move = ai.ab(root,3,-bound,bound,true).move;
+      console.log(move);
       root = takeMove(node.Node(true,root.board,move),move);
       root.root = true;
       //fs.appendFileSync("ai.txt",JSON.stringify(root)+"\r\n");
@@ -36,7 +34,7 @@ game.run = function(){
       i+=1;
     }
     else {
-      var move = ai.search(root,0,3,false);
+      var move = ai.ab(root,3,-bound,bound,false).move;
       console.log(move);
       root = takeMove(node.Node(false,root.board,move),move);
       root.root = true;
@@ -47,7 +45,6 @@ game.run = function(){
       i+=1;
     }
   }
-  */
 }
 
 fs.writeFileSync("ai.txt","");

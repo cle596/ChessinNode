@@ -37,7 +37,7 @@ var format = function(d,a,b,turn){
 ai.ab = function(n,depth,a,b,turn,branch){
   if (turn) {
     if (depth>0){
-      if (step(format(depth,a,b,turn))){
+      if (step("GEN: "+format(depth,a,b,turn))){
         var g = gen.gen(n);
       }
       if (n.root){
@@ -50,7 +50,9 @@ ai.ab = function(n,depth,a,b,turn,branch){
         if (ret>a) {
           new_a = ret;
           if (new_a>=b){
-            return a;
+            if (step("CUTOFF: "+format(depth,a,b,turn))){
+              return b;
+            }
           }
           else{
             a = new_a;
@@ -77,7 +79,7 @@ ai.ab = function(n,depth,a,b,turn,branch){
   }
   else {
     if (depth>0){
-      if (step(format(depth,a,b,turn))){
+      if (step("GEN: "+format(depth,a,b,turn))){
         var g = gen.gen(n);
       }
       if (n.root){
@@ -91,7 +93,9 @@ ai.ab = function(n,depth,a,b,turn,branch){
         if (ret<b) {
           new_b = ret;
           if (a>=new_b){
-            return b;
+            if (step("CUTOFF: "+format(depth,a,b,turn))){
+              return a;
+            }
           }
           else{
             b = new_b;
