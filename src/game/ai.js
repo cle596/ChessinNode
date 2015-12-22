@@ -34,6 +34,8 @@ var order = function(c) {
         return -1;
       }
     });
+    //console.log("high to low ",c);
+    return c;
   }
   else{
     c.forEach(function(y, x, arr) {
@@ -50,8 +52,9 @@ var order = function(c) {
         return 1;
       }
     });
+    console.log("low to high",c);
+    return c;
   }
-  return c;
 }
 
 ai.ab = function(n, depth, a, b, turn, branch) {
