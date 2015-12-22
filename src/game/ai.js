@@ -34,7 +34,6 @@ var order = function(c) {
         return -1;
       }
     });
-    //console.log("high to low ",c);
     return c;
   }
   else{
@@ -52,30 +51,32 @@ var order = function(c) {
         return 1;
       }
     });
-    console.log("low to high",c);
     return c;
   }
 }
 
 ai.ab = function(n, depth, a, b, turn, branch) {
-  //fs.appendFileSync("ai.txt","visit\n");
-  //visited += 1;
-  //console.log("nodes visited: "+visited.toString());
   if (turn) {
     if (depth > 0) {
+      console.time("gen");
       var g = gen.gen(n);
+      console.timeEnd("gen");
       if (n.root) {
         best_move = g[0];
-        //fs.appendFileSync("ai.txt","GEN\r\n"+g.toString()+"\r\n");
       }
       var c = [];
       g.forEach(function(y, x, arr) {
+        console.time("child");
         c.push(takeMove(node.Node(!turn, n.board, y), y));
+        console.timeEnd("child");
+        console.time("rotate");
         c[c.length-1].board = rotate.rotate(c[c.length-1]);
+        console.timeEnd("rotate");
       });
+      console.time("order");
       c = order(c);
+      console.timeEnd("order");
       c.forEach(function(y, x, arr) {
-        //fs.appendFileSync("../ai.txt",pretty.print(child));
         ret = ai.ab(y, depth - 1, a, b, !turn, y.move);
         if (ret > a) {
           new_a = ret;
@@ -99,9 +100,9 @@ ai.ab = function(n, depth, a, b, turn, branch) {
         return a;
       }
     } else {
+      console.time("score");
       s = score.score(n);
-      //console.log(s);
-      //fs.appendFileSync("ai.txt",s.toString()+"\r\n");
+      console.timeEnd("score");
       return s;
     }
   } else {
@@ -109,7 +110,6 @@ ai.ab = function(n, depth, a, b, turn, branch) {
       var g = gen.gen(n);
       if (n.root) {
         best_move = g[0];
-        //fs.appendFileSync("ai.txt","GEN\r\n"+g.toString()+"\r\n");
       }
       var c = [];
       g.forEach(function(y, x, arr) {
@@ -118,7 +118,6 @@ ai.ab = function(n, depth, a, b, turn, branch) {
       });
       c = order(c);
       c.forEach(function(y, x, arr) {
-        //fs.appendFileSync("../ai.txt",pretty.print(child));
         ret = ai.ab(y, depth - 1, a, b, !turn, y.move);
         if (ret < b) {
           new_b = ret;
@@ -143,8 +142,6 @@ ai.ab = function(n, depth, a, b, turn, branch) {
       }
     } else {
       s = -1 * score.score(n);
-      //console.log(s);
-      //fs.appendFileSync("ai.txt",s.toString()+"\r\n");
       return s;
     }
   }
