@@ -21,7 +21,7 @@ game.run = function(){
   var root = node.Node(true);
   root.root = true;
   var i=0;
-  while (i<1){
+  while (i<10){
     if (root.turn){
       var move = ai.ab(root,3,-bound,bound,true).move;
       console.log(move);
