@@ -58,33 +58,32 @@ var order = function(c) {
 ai.ab = function(n, depth, a, b, turn, branch) {
   if (turn) {
     if (depth > 0) {
-      console.time("gen");
+      //console.time("gen");
       var g = gen.gen(n);
-      console.timeEnd("gen");
+      //console.timeEnd("gen");
       if (n.root) {
         best_move = g[0];
       }
       var c = [];
       g.forEach(function(y, x, arr) {
-        console.time("child");
+        //console.time("child");
         c.push(takeMove(node.Node(!turn, n.board, y), y));
-        console.timeEnd("child");
-        console.time("rotate");
+        //console.timeEnd("child");
+        //console.time("rotate");
         c[c.length-1].board = rotate.rotate(c[c.length-1]);
-        console.timeEnd("rotate");
+        //console.timeEnd("rotate");
       });
-      console.time("order");
+      //console.time("order");
       c = order(c);
-      console.timeEnd("order");
+      //console.timeEnd("order");
       c.forEach(function(y, x, arr) {
         ret = ai.ab(y, depth - 1, a, b, !turn, y.move);
         if (ret > a) {
-          new_a = ret;
-          if (new_a >= b) {
+          if (ret >= b) {
             return b;
           }
-          if (new_a>a){
-            a = new_a;
+          else{
+            a = ret;
             if (n.root) {
               best_move = y.move;
             }
@@ -92,6 +91,7 @@ ai.ab = function(n, depth, a, b, turn, branch) {
         }
       });
       if (n.root) {
+        console.log(a);
         return {
           value: a,
           move: best_move
@@ -100,9 +100,9 @@ ai.ab = function(n, depth, a, b, turn, branch) {
         return a;
       }
     } else {
-      console.time("score");
+      //console.time("score");
       s = score.score(n);
-      console.timeEnd("score");
+      //console.timeEnd("score");
       return s;
     }
   } else {
@@ -120,12 +120,11 @@ ai.ab = function(n, depth, a, b, turn, branch) {
       c.forEach(function(y, x, arr) {
         ret = ai.ab(y, depth - 1, a, b, !turn, y.move);
         if (ret < b) {
-          new_b = ret;
-          if (a >= new_b) {
+          if (a >= ret) {
             return a;
           }
-          if (new_b<b) {
-            b = new_b;
+          else{
+            b = ret;
             if (n.root) {
               best_move = y.move;
             }
@@ -147,32 +146,6 @@ ai.ab = function(n, depth, a, b, turn, branch) {
   }
 };
 
-ai.search = function(n,f,d,turn){
-  var g = f;
-  var upper = 100000;
-  var lower = -100000;
-  var b;
-  var ret;
-  var move;
-  while (lower<upper){
-    console.log(lower,upper);
-    if (g == lower){
-      b = g+1;
-    }
-    else{
-      b = g;
-    }
-    ret = ai.ab(n,d,b-1,b,turn);
-    g = ret.value;
-    move = ret.move;
-    if (g<b){
-      upper = g;
-    }
-    else {
-      lower = g;
-    }
-  }
-  return move;
-}
+
 
 module.exports = ai;

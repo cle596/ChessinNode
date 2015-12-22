@@ -23,24 +23,20 @@ game.run = function(){
   var i=0;
   while (i<1){
     if (root.turn){
-      //var move = ai.search(root,0,3,true);
-      var move = ai.ab(root,4,-bound,bound,true).move;
+      var move = ai.ab(root,3,-bound,bound,true).move;
       console.log(move);
       root = takeMove(node.Node(true,root.board,move),move);
       root.root = true;
-      //fs.appendFileSync("ai.txt",JSON.stringify(root)+"\r\n");
       console.log(pretty.print(root));
       root.board = rotate.rotate(root);
       root.turn = !root.turn;
       i+=1;
     }
     else {
-      //var move = ai.search(root,0,3,false);
-      var move = ai.ab(root,4,-bound,bound,false).move;
+      var move = ai.ab(root,3,-bound,bound,false).move;
       console.log(move);
       root = takeMove(node.Node(false,root.board,move),move);
       root.root = true;
-      //fs.appendFileSync("ai.txt",JSON.stringify(root)+"\r\n");
       root.board = rotate.rotate(root);
       root.turn = !root.turn;
       console.log(pretty.print(root));
