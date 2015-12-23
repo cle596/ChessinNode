@@ -147,5 +147,34 @@ ai.ab = function(n, depth, a, b, turn, branch) {
 };
 
 
+ai.search = function(n,f,d,turn){
+  var g = f;
+  var upper = 100000;
+  var lower = -100000;
+  var b;
+  var ret;
+  var move;
+  while (lower<upper){
+    console.log(lower,upper);
+    if (g == lower){
+      b = g+1;
+    }
+    else{
+      b = g;
+    }
+    ret = ai.ab(n,d,b-1,b,turn);
+    console.log(ret);
+    g = ret.value;
+    move = ret.move;
+    if (g<b){
+      upper = g;
+    }
+    else {
+      lower = g;
+    }
+  }
+  return move;
+}
+
 
 module.exports = ai;

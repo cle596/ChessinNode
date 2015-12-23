@@ -23,7 +23,8 @@ game.run = function(){
   var i=0;
   while (i<10){
     if (root.turn){
-      var move = ai.ab(root,3,-bound,bound,true).move;
+      //var move = ai.ab(root,3,-bound,bound,true).move;
+      var move = ai.search(root,0,3,true);
       console.log(move);
       root = takeMove(node.Node(true,root.board,move),move);
       root.root = true;
@@ -33,7 +34,8 @@ game.run = function(){
       i+=1;
     }
     else {
-      var move = ai.ab(root,3,-bound,bound,false).move;
+      //var move = ai.ab(root,3,-bound,bound,false).move;
+      var move = ai.search(root,0,3,false);
       console.log(move);
       root = takeMove(node.Node(false,root.board,move),move);
       root.root = true;
